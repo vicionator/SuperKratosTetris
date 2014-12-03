@@ -30,44 +30,36 @@ namespace Tetris
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int y = 0; y < 20; y++)
-            {
-                for (int x = 0; x < 10; x++)
-                {
-                    board[x, y] = 0;
-                    Coordenadas[x, y] = inicial;
-                    inicial.X += 20;
-                }
-                inicial.X = 0;
-                inicial.Y += 20;
-            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Point p1 = new Point(20, 0);
-            Point p2 = new Point(20, 400);
-            Point p3 = new Point(0, 20);
-            Point p4 = new Point(200, 20);
-            Graphics g = pictureBox1.CreateGraphics();
-            Pen Pluma = new Pen(Color.Black);
-            SolidBrush Brocha = new SolidBrush(Color.Red);
+            Tablero tab = new Tablero(pictureBox1);
+            tab.CreacionTab(pictureBox1);
+            //Point p1 = new Point(20, 0);
+            //Point p2 = new Point(20, 400);
+            //Point p3 = new Point(0, 20);
+            //Point p4 = new Point(200, 20);
+            //Graphics g = pictureBox1.CreateGraphics();
+            //Pen Pluma = new Pen(Color.Black);
+            //SolidBrush Brocha = new SolidBrush(Color.Red);
 
-            Rectangle rect;// = new Rectangle(0, 380, 20, 20);
-            Size tam = new Size(20,20);
+            //Rectangle rect;// = new Rectangle(0, 380, 20, 20);
+            //Size tam = new Size(20,20);
            
-            for (int i = 0; i < 10; i++)
-            {
-                g.DrawLine(Pluma, p1.X, p1.Y, p2.X, p2.Y);
-                p1.X += 20;
-                p2.X += 20;
-            }
-            for (int j = 0; j < 20; j++)
-            {
-                g.DrawLine(Pluma, p3.X, p3.Y, p4.X, p4.Y);
-                p3.Y += 20;
-                p4.Y += 20;
-            }
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    g.DrawLine(Pluma, p1.X, p1.Y, p2.X, p2.Y);
+            //    p1.X += 20;
+            //    p2.X += 20;
+            //}
+            //for (int j = 0; j < 20; j++)
+            //{
+            //    g.DrawLine(Pluma, p3.X, p3.Y, p4.X, p4.Y);
+            //    p3.Y += 20;
+            //    p4.Y += 20;
+            //}
             //for (int i = 0; i < 20; i++)
             //{
             //    for (int j = 0; j < 10; j++)
@@ -80,6 +72,11 @@ namespace Tetris
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             pictureBox1.Refresh();
+            Graphics g = pictureBox1.CreateGraphics();
+            SolidBrush Brocha = new SolidBrush(Color.Red);
+
+            Rectangle rect;// = new Rectangle(0, 380, 20, 20);
+            g.FillRectangle(Brocha, rect = new Rectangle(X, Y, 20, 20));
             if (e.KeyData == Keys.Up) 
             {
                 if (Y == 0)
