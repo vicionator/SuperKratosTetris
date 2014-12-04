@@ -15,12 +15,9 @@ namespace Tetris
         int[,] board = new int[10, 20];
         Point[,] Coordenadas = new Point[10, 20];
         Point inicial = new Point(0, 0);
-        int boardWidth = 10;
-        int boardHeight = 20;
         int X = 0;
         int Y = 0;
 
-        Tetromino Pieza = new Tetromino();
         
 
         public Form1()
@@ -35,38 +32,29 @@ namespace Tetris
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Tablero tab = new Tablero(pictureBox1);
+            Tablero tab = new Tablero();
             tab.CreacionTab(pictureBox1);
-            //Point p1 = new Point(20, 0);
-            //Point p2 = new Point(20, 400);
-            //Point p3 = new Point(0, 20);
-            //Point p4 = new Point(200, 20);
-            //Graphics g = pictureBox1.CreateGraphics();
-            //Pen Pluma = new Pen(Color.Black);
-            //SolidBrush Brocha = new SolidBrush(Color.Red);
 
-            //Rectangle rect;// = new Rectangle(0, 380, 20, 20);
-            //Size tam = new Size(20,20);
-           
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    g.DrawLine(Pluma, p1.X, p1.Y, p2.X, p2.Y);
-            //    p1.X += 20;
-            //    p2.X += 20;
-            //}
-            //for (int j = 0; j < 20; j++)
-            //{
-            //    g.DrawLine(Pluma, p3.X, p3.Y, p4.X, p4.Y);
-            //    p3.Y += 20;
-            //    p4.Y += 20;
-            //}
-            //for (int i = 0; i < 20; i++)
-            //{
-            //    for (int j = 0; j < 10; j++)
-            //    {
-            //        g.FillRectangle(Brocha, rect = new Rectangle(Coordenadas[j, i], tam));
-            //    }
-            //}
+            Cubo cu = new Cubo(new Point(40, 40));
+            cu.Dibujar(pictureBox1);
+
+            ELE el = new ELE(new Point(40, 80));
+            el.Dibujar(pictureBox1);
+
+            Jota jo = new Jota(new Point(80, 40));
+            jo.Dibujar(pictureBox1);
+
+            I pi = new I(new Point(80, 100));
+            pi.Dibujar(pictureBox1);
+
+            ESE es = new ESE(new Point(40, 140));
+            es.Dibujar(pictureBox1);
+
+            Zeta ze = new Zeta(new Point(40, 180));
+            ze.Dibujar(pictureBox1);
+
+            Te te = new Te(new Point(40, 220));
+            te.Dibujar(pictureBox1);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

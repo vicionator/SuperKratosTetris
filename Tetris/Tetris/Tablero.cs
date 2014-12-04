@@ -15,9 +15,8 @@ namespace Tetris
         
         
 
-        public Tablero(PictureBox pb)
+        public Tablero()
         {
-            CreacionTab(pb);
         }
                
         public void CreacionTab(PictureBox p)
@@ -38,6 +37,7 @@ namespace Tetris
             foreach (Cuadro c in cuadritos)
             {
                 g.DrawRectangle(c.color, c.Rect);
+
             }
         }
     }
