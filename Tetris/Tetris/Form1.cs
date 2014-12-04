@@ -126,7 +126,7 @@ namespace Tetris
                         {
                             if (t.Estado == true) 
                             {
-                                if ((t.coordenadas.X == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.X + 20 && t.coordenadas.Y == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.Y)) 
+                                if ((t.coordenadas.X == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.X + 20 && t.coordenadas.Y == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.Y) || (t.coordenadas.X == cu.PiezaO[cu.PiezaO.Count-3].coordenadas.X+20 && t.coordenadas.Y == cu.PiezaO[cu.PiezaO.Count-3].coordenadas.Y) ) 
                                 {
                                     c.coordenadas.X -= 20;
                                 }
