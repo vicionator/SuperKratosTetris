@@ -10,8 +10,9 @@ namespace Tetris
 {
     public class Tablero
     {
-        List<Cuadro> cuadritos = new List<Cuadro>();
+        public List<Cuadro> cuadritos = new List<Cuadro>();
         Point inicial = new Point(0, 0);
+        Rectangle rect;
         
         
 
@@ -19,10 +20,8 @@ namespace Tetris
         {
         }
                
-        public void CreacionTab(PictureBox p)
+        public void CreacionTab()
         {
-            Graphics g = p.CreateGraphics();
-
             for (int y = 0; y < 20; y++)
             {
                 for (int x = 0; x < 10; x++)
@@ -34,10 +33,20 @@ namespace Tetris
                 inicial.X = 0;
                 inicial.Y += 20;
             }
+        }
+        public void Dibuja(PictureBox p) 
+        {
+            Graphics g = p.CreateGraphics();
+            Size tam = new Size(20, 20);
+
             foreach (Cuadro c in cuadritos)
             {
-                g.DrawRectangle(c.color, c.Rect);
-
+                if (c.Estado == true)
+                {
+                    rect = new Rectangle(c.coordenadas, tam);
+                    g.FillRectangle(c.Brocha4, rect);
+                    ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
+                }
             }
         }
     }

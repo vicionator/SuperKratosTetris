@@ -40,11 +40,15 @@ namespace Tetris
         public void Dibujar(PictureBox pb)
         {
             Graphics g = pb.CreateGraphics();
+            Rectangle rect;
+            Size tam = new Size(20, 20);
 
             foreach (Cuadro c in PiezaT)
             {
-                g.FillRectangle(c.Brocha6, c.Rect);
-                ControlPaint.DrawBorder(g, c.Rect, Color.Black, ButtonBorderStyle.Inset);
+                c.Estado = true;
+                rect = new Rectangle(c.coordenadas, tam);
+                g.FillRectangle(c.Brocha6, rect);
+                ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
             }
         }
     }

@@ -11,7 +11,7 @@ namespace Tetris
     public class Cubo
     {
 
-        List<Cuadro> PiezaO = new List<Cuadro>();
+        public List<Cuadro> PiezaO = new List<Cuadro>();
 
 
         public Cubo(Point co)
@@ -30,11 +30,14 @@ namespace Tetris
         public void Dibujar(PictureBox pb) 
         {
             Graphics g = pb.CreateGraphics();
+            Rectangle rect;
+            Size tam = new Size(20, 20);
 
             foreach (Cuadro c in PiezaO)
             {
-                g.FillRectangle(c.Brocha, c.Rect);
-                ControlPaint.DrawBorder(g, c.Rect, Color.Black, ButtonBorderStyle.Inset);
+                rect = new Rectangle(c.coordenadas, tam);
+                g.FillRectangle(c.Brocha, rect);
+                ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
             }
         }
     }
