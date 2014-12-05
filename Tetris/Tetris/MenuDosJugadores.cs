@@ -19,6 +19,28 @@ namespace Tetris
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            MenuPrincipal m = new MenuPrincipal();
+            m.Show();
+            this.Hide();
+        }
+
+        private void btnEsperarPartida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MenuDosJugadores_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MenuPrincipal m = new MenuPrincipal();
+            m.Show();
+            this.Hide();
+        }
+
+        private void btnConectarIP_Click(object sender, EventArgs e)
+        {
+            EscribeIP es = new EscribeIP();
+            es.Show();
+            this.Hide();
 
         }
     }

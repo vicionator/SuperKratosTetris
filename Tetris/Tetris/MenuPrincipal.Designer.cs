@@ -107,6 +107,8 @@
             this.Controls.Add(this.btnCreditos);
             this.Controls.Add(this.btnDosJugadores);
             this.Controls.Add(this.btnUnJugador);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MenuPrincipal";
             this.Text = "Super Kratos Tetris";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuPrincipal_FormClosed);

@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(690, 406);
             this.Name = "DosJugadoresTablero";
             this.Text = "DosJugadoresTablero";
+            this.Load += new System.EventHandler(this.DosJugadoresTablero_Load);
             this.ResumeLayout(false);
 
         }

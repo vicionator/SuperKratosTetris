@@ -10,16 +10,23 @@ using System.Windows.Forms;
 
 namespace Tetris
 {
-    public partial class DosJugadoresTablero : Form
+    public partial class Creditos : Form
     {
-        public DosJugadoresTablero()
+        public Creditos()
         {
             InitializeComponent();
         }
 
-        private void DosJugadoresTablero_Load(object sender, EventArgs e)
+        private void Creditos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Creditos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MenuPrincipal m = new MenuPrincipal();
+            m.Show();
+            this.Hide();
         }
     }
 }
