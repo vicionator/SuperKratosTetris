@@ -53,6 +53,7 @@
             this.btnVolver.TabIndex = 8;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnAceptar
             // 
@@ -88,8 +89,11 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txbIP);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "EscribeIP";
             this.Text = "EscribeIP";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EscribeIP_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

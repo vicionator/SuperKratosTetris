@@ -21,5 +21,19 @@ namespace Tetris
         {
 
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            MenuDosJugadores m2 = new MenuDosJugadores();
+            m2.Show();
+            this.Hide();
+        }
+
+        private void EscribeIP_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MenuDosJugadores m2 = new MenuDosJugadores();
+            m2.Show();
+            this.Hide();
+        }
     }
 }

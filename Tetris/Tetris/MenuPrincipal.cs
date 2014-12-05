@@ -31,12 +31,16 @@ namespace Tetris
 
         private void btnDosJugadores_Click(object sender, EventArgs e)
         {
-
+            MenuDosJugadores m2 = new MenuDosJugadores();
+            m2.Show();
+            this.Hide();
         }
 
         private void btnCreditos_Click(object sender, EventArgs e)
         {
-
+            Creditos c = new Creditos();
+            c.Show();
+            this.Hide();
         }
 
         private void MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)

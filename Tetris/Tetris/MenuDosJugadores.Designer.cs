@@ -45,6 +45,7 @@
             this.btnConectarIP.TabIndex = 4;
             this.btnConectarIP.Text = "Conectar con IP";
             this.btnConectarIP.UseVisualStyleBackColor = false;
+            this.btnConectarIP.Click += new System.EventHandler(this.btnConectarIP_Click);
             // 
             // btnEsperarPartida
             // 
@@ -57,6 +58,7 @@
             this.btnEsperarPartida.TabIndex = 3;
             this.btnEsperarPartida.Text = "Esperar Partida";
             this.btnEsperarPartida.UseVisualStyleBackColor = false;
+            this.btnEsperarPartida.Click += new System.EventHandler(this.btnEsperarPartida_Click);
             // 
             // label1
             // 
@@ -92,8 +94,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConectarIP);
             this.Controls.Add(this.btnEsperarPartida);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MenuDosJugadores";
             this.Text = "Dos Jugadores";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuDosJugadores_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Creditos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Creditos.Designer.cs">
+      <DependentUpon>Creditos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cuadro.cs" />
     <Compile Include="DosJugadoresTablero.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
     <Compile Include="Tablero.cs" />
     <Compile Include="Piezas\Te.cs" />
     <Compile Include="Piezas\Zeta.cs" />
+    <EmbeddedResource Include="Creditos.resx">
+      <DependentUpon>Creditos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DosJugadoresTablero.resx">
       <DependentUpon>DosJugadoresTablero.cs</DependentUpon>
     </EmbeddedResource>

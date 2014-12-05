@@ -155,8 +155,11 @@
             this.Name = "DosJugadoresTablero";
             this.Text = "DosJugadoresTablero";
             this.Load += new System.EventHandler(this.DosJugadoresTablero_Load);
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.PBJugador1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBJugador2)).EndInit();
+=======
+>>>>>>> origin/master
             this.ResumeLayout(false);
             this.PerformLayout();
 
