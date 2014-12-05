@@ -66,7 +66,7 @@ namespace Tetris
                 ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
             }
         }
-        public bool MoverAbajo(ref List<Cuadro> PiezaZ, Tablero tab)
+        public bool MoverAbajo(ref List<Cuadro> PiezaZ, Tablero tab,OrientacionPieza op)
         {
             bool verificar = false;
             foreach (Cuadro c in PiezaZ)
@@ -121,7 +121,7 @@ namespace Tetris
             return verificar;
 
         }
-        public void MoverDerecha(ref List<Cuadro> PiezaZ, Tablero tab)
+        public void MoverDerecha(ref List<Cuadro> PiezaZ, Tablero tab, OrientacionPieza op)
         {
             bool mover = true;
             foreach (Cuadro c in PiezaZ)
@@ -156,7 +156,7 @@ namespace Tetris
             }
 
         }
-        public void MoverIzquierda(ref List<Cuadro> PiezaZ, Tablero tab)
+        public void MoverIzquierda(ref List<Cuadro> PiezaZ, Tablero tab, OrientacionPieza op)
         {
             bool mover = true;
             foreach (Cuadro c in PiezaZ)
