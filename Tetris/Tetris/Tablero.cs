@@ -13,13 +13,11 @@ namespace Tetris
         public List<Cuadro> cuadritos = new List<Cuadro>();
         Point inicial = new Point(0, 0);
         Rectangle rect;
-        
-        
-
+        int puntos = 0;
         public Tablero()
         {
-        }
-               
+            CreacionTab();
+        }             
         public void CreacionTab()
         {
             for (int y = 0; y < 20; y++)
@@ -49,7 +47,6 @@ namespace Tetris
                 }
             }
         }
-
         public void VerificarLineas()
         {
             bool[] Lineas=new bool[20];
@@ -111,7 +108,7 @@ namespace Tetris
                         }
                         contador = 0;
                     }
-                    
+                    puntos++;
                 }
             }
             bool[,] Cuadros2 = VerificarCuadrosOcupados();
@@ -139,6 +136,21 @@ namespace Tetris
                 contador = 0;
             }
             return Cuadros;
+        }
+        public int ObtenerPuntos()
+        {
+            return puntos;
+        }
+        public bool Perder()
+        {
+            bool resultado = false;
+            bool[,] Matrix = VerificarCuadrosOcupados();
+            for (int i = 0; i < 10; i++)
+            {
+                if (Matrix[0, i])
+                    resultado = true;
+            }
+            return resultado;
         }
     }
 }

@@ -17,21 +17,20 @@ namespace Tetris
         Point[,] Coordenadas = new Point[10, 20];
         Point inicial = new Point(0, 0);
         Tablero tab = new Tablero();
-        Pieza pi = new Pieza(new Cubo(), new Point(40,40),OrientacionPieza.Arriba);
+        Pieza pi = new Pieza(new Cubo(), new Point(100,0),OrientacionPieza.Arriba);
         MenuPrincipal M;
         public Form1(MenuPrincipal m)
         {
             M = m;
             InitializeComponent();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            tab.CreacionTab();
         }
         private void button1_Click(object sender, EventArgs e)
         {
             pictureBox1.Refresh();
-
             //foreach (Cuadro c in cu.PiezaO)
             //{
             //    c.coordenadas.Y += 20;
@@ -64,8 +63,14 @@ namespace Tetris
                 
                 if (pi.MoverAbajo(tab))
                 {
-                    pi = new Pieza(NuevaPieza(), new Point(40, 40),/*NuevaOrientacion()*/OrientacionPieza.Arriba);
+                    pi = new Pieza(NuevaPieza(), new Point(100, 0),/*NuevaOrientacion()*/OrientacionPieza.Arriba);
                     tab.VerificarLineas();
+                    if(tab.Perder())
+                    {
+                        MessageBox.Show("Haz Perdido!!\nPuntos: " + lbPuntos.Text);
+                        tab = new Tablero();
+                    }
+                    lbPuntos.Text = tab.ObtenerPuntos().ToString();
                 }
                 Refrescar();
             }
@@ -79,7 +84,7 @@ namespace Tetris
                 pi.MoverIzquierda(tab);
                 Refrescar();
             }
-            if (keyData == Keys.Space) 
+            if (keyData == Keys.Up) 
             {
                 pi.Rotar(tab);
                 Refrescar();
@@ -146,12 +151,29 @@ namespace Tetris
             }
             return op;
         }
-
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MenuPrincipal m = new MenuPrincipal();
-            m.Show();
-            this.Hide();
+            /*if ((MessageBox.Show("¿Desea volver al Menu principal?", "Volver",
+    MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+    MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+            {
+                MenuPrincipal m = new MenuPrincipal();
+                m.Show();
+                this.Close();
+            }*/
         }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            if ((MessageBox.Show("¿Desea volver al Menu principal?", "Volver",
+MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
+            {
+                MenuPrincipal m = new MenuPrincipal();
+                m.Show();
+                this.Close();
+            }
+        }
+
+
     }
 }

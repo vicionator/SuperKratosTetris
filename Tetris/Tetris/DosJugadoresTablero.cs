@@ -16,5 +16,12 @@ namespace Tetris
         {
             InitializeComponent();
         }
+
+        private void DosJugadoresTablero_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
