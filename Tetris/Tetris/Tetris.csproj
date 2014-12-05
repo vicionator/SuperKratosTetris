@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cuadro.cs" />
+    <Compile Include="Piezas\OrientacionPieza.cs" />
     <Compile Include="Piezas\Cubo.cs" />
     <Compile Include="Piezas\ELE.cs" />
     <Compile Include="Piezas\ESE.cs" />

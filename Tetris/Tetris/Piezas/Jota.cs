@@ -17,7 +17,7 @@ namespace Tetris
 
         }
 
-        public List<Cuadro> Formar(Point co)
+        public List<Cuadro> Formar(Point co, OrientacionPieza op)
         {
             List<Cuadro> PiezaJ = new List<Cuadro>();
             bool agrega = false;

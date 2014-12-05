@@ -17,7 +17,7 @@ namespace Tetris
         Point[,] Coordenadas = new Point[10, 20];
         Point inicial = new Point(0, 0);
         Tablero tab = new Tablero();
-        Pieza pi = new Pieza(new Cubo(), new Point(40,40));       
+        Pieza pi = new Pieza(new Cubo(), new Point(40,40),OrientacionPieza.Arriba);       
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +62,7 @@ namespace Tetris
                 
                 if (pi.MoverAbajo(tab))
                 {
-                    pi = new Pieza(NuevaPieza(), new Point(40, 40));  
+                    pi = new Pieza(NuevaPieza(), new Point(40, 40),NuevaOrientacion());  
                 }
                 Refrescar();
             }
@@ -116,6 +116,27 @@ namespace Tetris
             }
             return pieza;
         }
-
+        public OrientacionPieza NuevaOrientacion()
+        {
+            OrientacionPieza op = OrientacionPieza.Arriba;
+            Random r = new Random();
+            int x = r.Next(1, 5);
+            switch (x)
+            {
+                case 1:
+                    op = OrientacionPieza.Arriba;
+                    break;
+                case 2:
+                    op = OrientacionPieza.Abajo;
+                    break;
+                case 3:
+                    op = OrientacionPieza.Derecha;
+                    break;
+                case 4:
+                    op = OrientacionPieza.Izquierda;
+                    break;
+            }
+            return op;
+        }
     }
 }

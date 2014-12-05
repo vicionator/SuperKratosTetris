@@ -14,7 +14,7 @@ namespace Tetris
         public Cubo()
         {
         }
-        public List<Cuadro> Formar(Point co)
+        public List<Cuadro> Formar(Point co, OrientacionPieza op)
         {
             List<Cuadro> PiezaO = new List<Cuadro>();
             for (int i = 0; i < 2; i++)
