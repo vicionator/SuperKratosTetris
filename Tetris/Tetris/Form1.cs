@@ -62,7 +62,8 @@ namespace Tetris
                 
                 if (pi.MoverAbajo(tab))
                 {
-                    pi = new Pieza(NuevaPieza(), new Point(40, 40),/*NuevaOrientacion()*/OrientacionPieza.Arriba);  
+                    pi = new Pieza(NuevaPieza(), new Point(40, 40),/*NuevaOrientacion()*/OrientacionPieza.Arriba);
+                    tab.VerificarLineas();
                 }
                 Refrescar();
             }
