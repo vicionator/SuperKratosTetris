@@ -62,7 +62,7 @@ namespace Tetris
                 
                 if (pi.MoverAbajo(tab))
                 {
-                    pi = new Pieza(NuevaPieza(), new Point(40, 40),NuevaOrientacion());  
+                    pi = new Pieza(NuevaPieza(), new Point(40, 40),/*NuevaOrientacion()*/OrientacionPieza.Arriba);  
                 }
                 Refrescar();
             }
@@ -78,7 +78,7 @@ namespace Tetris
             }
             if (keyData == Keys.Space) 
             {
-                pi.Rotar(tab, pictureBox1);
+                pi.Rotar(tab);
                 Refrescar();
             }
 

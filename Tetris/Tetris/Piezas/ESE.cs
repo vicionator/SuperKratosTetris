@@ -10,8 +10,8 @@ namespace Tetris
 {
     public class ESE:IPieza
     {
-        List<Cuadro> PiezaS = new List<Cuadro>();
-        bool agrega = false;
+        
+        
         public ESE()
         {
 
@@ -19,26 +19,37 @@ namespace Tetris
         public List<Cuadro> Formar(Point co, OrientacionPieza op)
         {
             List<Cuadro> PiezaS = new List<Cuadro>();
-            for (int i = 0; i < 2; i++)
+            bool agrega = false;
+            if (op == OrientacionPieza.Arriba||op==OrientacionPieza.Abajo)
             {
-                for (int j = 0; j < 3; j++)
+                for (int i = 0; i < 2; i++)
                 {
-                    if ((i == 0 & j == 0) || (i == 1 & j == 2))
+                    for (int j = 0; j < 3; j++)
                     {
-                        agrega = false;
+                        if ((i == 0 & j == 0) || (i == 1 & j == 2))
+                        {
+                            agrega = false;
+                        }
+                        else
+                        {
+                            agrega = true;
+                        }
+                        if (agrega == true)
+                        {
+                            PiezaS.Add(new Cuadro(co));
+                        }
+                        co.X += 20;
                     }
-                    else
-                    {
-                        agrega = true;
-                    }
-                    if (agrega == true)
-                    {
-                        PiezaS.Add(new Cuadro(co));
-                    }
-                    co.X += 20;
+                    co.X -= 60;
+                    co.Y += 20;
                 }
-                co.X -= 60;
-                co.Y += 20;
+            }
+            else if (op == OrientacionPieza.Derecha||op == OrientacionPieza.Izquierda)
+            {
+                PiezaS.Add(new Cuadro(new Point(co.X - 20, co.Y - 20)));
+                PiezaS.Add(new Cuadro(new Point(co.X - 20, co.Y)));
+                PiezaS.Add(new Cuadro(new Point(co.X, co.Y + 20)));
+                PiezaS.Add(new Cuadro(new Point(co.X, co.Y)));
             }
             return PiezaS;
         }
