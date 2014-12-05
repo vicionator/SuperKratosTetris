@@ -34,7 +34,7 @@ namespace Tetris.Piezas
         {
             pieza.MoverIzquierda(ref PiezaO, tab);
         }
-        public void Rotar(Tablero tab)
+        public void Rotar(Tablero tab, PictureBox pb)
         {
             pieza.Rotar(tab, ref OP, PiezaO);
         }

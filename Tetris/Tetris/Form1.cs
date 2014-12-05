@@ -78,7 +78,7 @@ namespace Tetris
             }
             if (keyData == Keys.Space) 
             {
-                pi.Rotar(tab);
+                pi.Rotar(tab, pictureBox1);
                 Refrescar();
             }
 
