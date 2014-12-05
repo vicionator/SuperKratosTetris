@@ -49,5 +49,96 @@ namespace Tetris
                 }
             }
         }
+
+        public void VerificarLineas()
+        {
+            bool[] Lineas=new bool[20];
+            for (int i = 0; i < Lineas.Length; i++)
+            {
+                Lineas[i] = false;
+            }
+            int ContadorColumnas = 0;
+            int CordY = 0;
+            for (int i = 0; i < 20; i++)
+            {
+                //List<Cuadro> temp= cuadritos.Select(x=>x).Where(x=>x.coordenadas.Y==cont);
+                foreach (Cuadro c in cuadritos.Select(x => x).Where(x => x.coordenadas.Y == CordY))
+                {
+                    if (c.Estado)
+                        ContadorColumnas++;
+                }
+                if(ContadorColumnas==10)
+                {
+                    Lineas[i] = true;
+                    ContadorColumnas = 0;
+                }
+                else
+                {
+                    ContadorColumnas = 0;
+                }
+                CordY += 20;
+            }
+            bool limpiarLineas = false;
+            foreach (bool b in Lineas)
+            {
+                if (b)
+                    limpiarLineas = true;
+            }
+            if (limpiarLineas)
+                LimpiarLineas(Lineas);
+        }
+        public void LimpiarLineas(bool[] Lineas)
+        {
+            for (int i = 0; i < Lineas.Length; i++)
+			{
+                if(Lineas[i])
+                {
+                    foreach (Cuadro c in cuadritos.Select(x => x).Where(x => x.coordenadas.Y == (20*i)))
+                    {
+                        c.Estado = false;
+                    }
+                    bool[,] Cuadros = VerificarCuadrosOcupados();
+                    int contador = 0;
+                    for (int j = i; j > 0; j--)
+                    {
+                        foreach (Cuadro c in cuadritos.Select(x => x).Where(x => x.coordenadas.Y == (20*j)))
+                        {
+                            if (Cuadros[j-1, contador])
+                                c.Estado = true;
+                            else
+                                c.Estado = false;
+                            contador++;
+                        }
+                        contador = 0;
+                    }
+                    
+                }
+            }
+            bool[,] Cuadros2 = VerificarCuadrosOcupados();
+            VerificarLineas();
+        }
+        public bool[,] VerificarCuadrosOcupados()
+        {
+            bool[,] Cuadros = new bool[20, 10];
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 20; j++)
+                {
+                    Cuadros[j, i] = false;
+                }
+            }
+            int contador = 0;
+            for (int i = 0; i < 20; i++)
+            {
+                foreach (Cuadro c in cuadritos.Select(x => x).Where(x => x.coordenadas.Y == (i*20)))
+                {
+                    if (c.Estado)
+                        Cuadros[i, contador] = true;
+                    contador++;
+                }
+                contador = 0;
+            }
+            return Cuadros;
+        }
     }
 }
