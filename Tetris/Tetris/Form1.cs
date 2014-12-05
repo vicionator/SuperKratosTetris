@@ -17,8 +17,7 @@ namespace Tetris
         Point inicial = new Point(0, 0);
 
         Tablero tab = new Tablero();
-        Cubo cu = new Cubo(new Point(40, 40));
-        
+        Cubo cu = new Cubo(new Point(40, 40));        
 
         public Form1()
         {
@@ -62,112 +61,33 @@ namespace Tetris
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            pictureBox1.Refresh();
-
             if (keyData == Keys.Down)
             {
-                foreach (Cuadro c in cu.PiezaO)
+                
+                if (cu.MoverAbajo(tab))
                 {
-                    if (c.Estado == false)
-                    {
-                        foreach (Cuadro ta in tab.cuadritos)
-                        {
-                            if (ta.Estado == true) 
-                            {
-                                if ((ta.coordenadas.X == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.X && ta.coordenadas.Y - 20 == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.Y) || (ta.coordenadas.X == cu.PiezaO[cu.PiezaO.Count - 2].coordenadas.X && ta.coordenadas.Y - 20 == cu.PiezaO[cu.PiezaO.Count - 2].coordenadas.Y && ta.coordenadas.Y - 20 == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.Y)) 
-                                {
-                                    foreach (Cuadro c2 in cu.PiezaO)
-                                    {
-                                        foreach (Cuadro t in tab.cuadritos)
-                                        {
-                                            if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
-                                            {
-                                                t.Estado = true;
-                                                t.Brocha4 = c2.Brocha;
-                                            }
-                                        }
-                                        c2.Estado = true;
-                                    }
-                                    cu = new Cubo(new Point(40, 40));
-                                    break;
-                                }
-                            }
-                        }
-                        c.coordenadas.Y += 20;
-                        if (cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.Y == 380)
-                        {
-                            foreach (Cuadro c2 in cu.PiezaO)
-                            {
-                                foreach (Cuadro t in tab.cuadritos)
-                                {
-                                    if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y) 
-                                    {
-                                        t.Estado = true;
-                                        t.Brocha4 = c2.Brocha;
-                                    }
-                                }
-                                c2.Estado = true;
-                            }
-                            cu = new Cubo(new Point(40, 40));
-                            break;
-                        }
-                    }
+                    cu = new Cubo(new Point(40, 40));     
                 }
-                cu.Dibujar(pictureBox1);
-                tab.Dibuja(pictureBox1);
+                Refrescar();
             }
             if (keyData == Keys.Right) 
             {
-                foreach (Cuadro c in cu.PiezaO)
-                {
-                    if (c.Estado == false) 
-                    {
-                        foreach (Cuadro t in tab.cuadritos)
-                        {
-                            if (t.Estado == true) 
-                            {
-                                if ((t.coordenadas.X == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.X + 20 && t.coordenadas.Y == cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.Y) || (t.coordenadas.X == cu.PiezaO[cu.PiezaO.Count-3].coordenadas.X+20 && t.coordenadas.Y == cu.PiezaO[cu.PiezaO.Count-3].coordenadas.Y) ) 
-                                {
-                                    c.coordenadas.X -= 20;
-                                }
-                            }
-                        }
-                        if ((cu.PiezaO[cu.PiezaO.Count - 1].coordenadas.X == 180))
-                        {
-                        }
-                        else
-                        {
-                            c.coordenadas.X += 20;
-                        }
-                    }
-                }
-                cu.Dibujar(pictureBox1);
-                tab.Dibuja(pictureBox1);
+                cu.MoverDerecha(tab);
+                Refrescar();
             }
             if (keyData == Keys.Left) 
             {
-                foreach (Cuadro c in cu.PiezaO)
-                {
-                    if (c.Estado == false)
-                    {
-                        if (cu.PiezaO[cu.PiezaO.Count-1].coordenadas.X == 20)
-                        {
-                        }
-                        else
-                        {
-                            c.coordenadas.X -= 20;
-                        }
-                    }
-                }
-                cu.Dibujar(pictureBox1);
-                tab.Dibuja(pictureBox1);
+                cu.MoverIzquierda(tab);
+                Refrescar();
             }
-            if (keyData == Keys.Up) 
-            {
-                cu.Dibujar(pictureBox1);
-                tab.Dibuja(pictureBox1);
-            }
+
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+        public void Refrescar()
+        {
+            pictureBox1.Refresh();
+            cu.Dibujar(pictureBox1);
+            tab.Dibuja(pictureBox1);
         }
     }
 }
