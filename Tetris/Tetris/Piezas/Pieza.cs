@@ -36,11 +36,7 @@ namespace Tetris.Piezas
         }
         public void Rotar(Tablero tab)
         {
-<<<<<<< HEAD
             PiezaO = pieza.Rotar(tab, ref OP, PiezaO);
-=======
-            PiezaO=pieza.Rotar(tab, ref OP, PiezaO);
->>>>>>> 9470845102c41f91150117d52c925980e74e1bbf
         }
 
     }

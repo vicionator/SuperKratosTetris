@@ -21,30 +21,54 @@ namespace Tetris
         {
             List<Cuadro> PiezaJ = new List<Cuadro>();
             bool agrega = false;
-            for (int i = 0; i < 2; i++)
+            if (op == OrientacionPieza.Arriba)
             {
-                for (int j = 0; j < 3; j++)
+                for (int i = 0; i < 2; i++)
                 {
-                    if (i == 0)
+                    for (int j = 0; j < 3; j++)
                     {
-                        agrega = false;
+                        if (i == 0)
+                        {
+                            agrega = false;
+                        }
+                        else if (i == 1)
+                        {
+                            agrega = true;
+                        }
+                        if (i == 0 && j == 2)
+                        {
+                            agrega = true;
+                        }
+                        if (agrega == true)
+                        {
+                            PiezaJ.Add(new Cuadro(co));
+                        }
+                        co.Y += 20;
                     }
-                    else if (i == 1)
-                    {
-                        agrega = true;
-                    }
-                    if (i == 0 && j == 2)
-                    {
-                        agrega = true;
-                    }
-                    if (agrega == true)
-                    {
-                        PiezaJ.Add(new Cuadro(co));
-                    }
-                    co.Y += 20;
+                    co.Y -= 60;
+                    co.X += 20;
                 }
-                co.Y -= 60;
-                co.X += 20;
+            }
+            if (op == OrientacionPieza.Izquierda)
+            {
+                PiezaJ.Add(new Cuadro(new Point(co.X, co.Y + 20)));
+                PiezaJ.Add(new Cuadro(new Point(co.X - 40, co.Y)));
+                PiezaJ.Add(new Cuadro(new Point(co.X - 20, co.Y)));
+                PiezaJ.Add(new Cuadro(new Point(co.X, co.Y)));
+            }
+            if (op == OrientacionPieza.Abajo)
+            {
+                PiezaJ.Add(new Cuadro(new Point(co.X + 20, co.Y)));
+                PiezaJ.Add(new Cuadro(new Point(co.X, co.Y + 40)));
+                PiezaJ.Add(new Cuadro(new Point(co.X, co.Y + 20)));
+                PiezaJ.Add(new Cuadro(new Point(co.X, co.Y )));
+            }
+            if (op == OrientacionPieza.Derecha)
+            {
+                PiezaJ.Add(new Cuadro(new Point(co.X, co.Y - 20)));
+                PiezaJ.Add(new Cuadro(new Point(co.X + 20, co.Y)));
+                PiezaJ.Add(new Cuadro(new Point(co.X + 40, co.Y)));
+                PiezaJ.Add(new Cuadro(new Point(co.X, co.Y)));
             }
             return PiezaJ;
         }
@@ -193,7 +217,22 @@ namespace Tetris
         }
         public List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op, List<Cuadro> Pieza)
         {
-            throw new NotImplementedException();
+            switch (op)
+            {
+                case OrientacionPieza.Arriba:
+                    op = OrientacionPieza.Izquierda;
+                    break;
+                case OrientacionPieza.Izquierda:
+                    op = OrientacionPieza.Abajo;
+                    break;
+                case OrientacionPieza.Abajo:
+                    op = OrientacionPieza.Derecha;
+                    break;
+                case OrientacionPieza.Derecha:
+                    op = OrientacionPieza.Arriba;
+                    break;
+            }
+            return Formar(Pieza[3].coordenadas, op);
         }
     }
 }

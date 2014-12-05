@@ -11,8 +11,7 @@ namespace Tetris
 {
     public class ELE:IPieza
     {
-        List<Cuadro> PiezaL = new List<Cuadro>();
-        bool agrega = false;
+
         public ELE()
         {
 
@@ -20,6 +19,8 @@ namespace Tetris
 
         public List<Cuadro> Formar(Point co, OrientacionPieza op)
         {
+            List<Cuadro> PiezaL = new List<Cuadro>();
+            bool agrega = false;
             if (op == OrientacionPieza.Arriba) 
             {
                 for (int i = 0; i < 2; i++)
@@ -51,42 +52,24 @@ namespace Tetris
             }
             if (op == OrientacionPieza.Izquierda) 
             {
-                co.X -= 40;
-                for (int i = 0; i < 2; i++)
-                {
-                    for (int j = 0; j < 3; j++)
-                    {
-                        if (i == 0) 
-                        {
-                            agrega = true;
-                        }
-                        else if (i == 1) 
-                        {
-                            agrega = false;
-                        }
-                        if (i == 1 && j == 2) 
-                        {
-                            agrega = true;
-                        }
-                        if (agrega == true)
-                        {
-                            PiezaL.Add(new Cuadro(co));
-                        }
-                        if (i == 1)
-                        {
-                        }
-                        else
-                        {
-                            co.X += 20;
-                        }
-                    }
-                }
+                PiezaL.Add(new Cuadro(new Point(co.X - 40, co.Y)));
+                PiezaL.Add(new Cuadro(new Point(co.X - 20, co.Y)));
+                PiezaL.Add(new Cuadro(new Point(co.X, co.Y)));
+                PiezaL.Add(new Cuadro(new Point(co.X, co.Y-20)));
             }
             if (op == OrientacionPieza.Abajo) 
             {
+                PiezaL.Add(new Cuadro(new Point(co.X, co.Y + 20)));
+                PiezaL.Add(new Cuadro(new Point(co.X, co.Y)));
+                PiezaL.Add(new Cuadro(new Point(co.X, co.Y-20)));
+                PiezaL.Add(new Cuadro(new Point(co.X - 20, co.Y - 20)));
             }
             if (op == OrientacionPieza.Derecha) 
             {
+                PiezaL.Add(new Cuadro(new Point(co.X + 40, co.Y)));
+                PiezaL.Add(new Cuadro(new Point(co.X + 20, co.Y)));
+                PiezaL.Add(new Cuadro(new Point(co.X, co.Y)));
+                PiezaL.Add(new Cuadro(new Point(co.X, co.Y + 20)));
             }
             return PiezaL;
         }

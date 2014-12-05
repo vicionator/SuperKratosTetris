@@ -37,3 +37,4 @@ C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.c
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Block.png
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.pdb
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
