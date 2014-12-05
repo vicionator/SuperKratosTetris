@@ -165,9 +165,21 @@ namespace Tetris
             }
 
         }
-        public void Rotar(ref List<Cuadro> PiezaI, Tablero tab)
+        public List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op)
         {
-            throw new NotImplementedException();
+            if (op == OrientacionPieza.Abajo) 
+            {
+            }
+            if (op == OrientacionPieza.Arriba) 
+            {
+            }
+            if (op == OrientacionPieza.Derecha) 
+            {
+            }
+            if (op == OrientacionPieza.Izquierda) 
+            {
+            }
+            return PiezaI;
         }
     }
 }

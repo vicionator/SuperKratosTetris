@@ -167,7 +167,7 @@ namespace Tetris
             }
 
         }
-        public void Rotar(ref List<Cuadro> PiezaO,Tablero tab)
+        public List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op)
         {
             throw new NotImplementedException();
         }

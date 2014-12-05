@@ -12,7 +12,7 @@ namespace Tetris.Piezas
     {
         List<Cuadro> PiezaO;
         IPieza pieza { get; set; }
-        OrientacionPieza OP { get; set; }
+        OrientacionPieza OP;
         public Pieza(IPieza _pieza,Point co, OrientacionPieza op)
         {
             pieza = _pieza;
@@ -36,7 +36,7 @@ namespace Tetris.Piezas
         }
         public void Rotar(Tablero tab)
         {
-            pieza.Rotar(ref PiezaO, tab);
+            pieza.Rotar(tab, ref OP);
         }
 
     }

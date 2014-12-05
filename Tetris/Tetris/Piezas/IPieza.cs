@@ -15,6 +15,6 @@ namespace Tetris.Piezas
         void MoverDerecha(ref List<Cuadro> PiezaO,Tablero tab);
         void MoverIzquierda(ref List<Cuadro> PiezaO,Tablero tab);
         bool MoverAbajo(ref List<Cuadro> PiezaO,Tablero tab);
-        void Rotar(ref List<Cuadro> PiezaO,Tablero tab);
+        List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op);
     }
 }

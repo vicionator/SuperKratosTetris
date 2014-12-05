@@ -76,6 +76,11 @@ namespace Tetris
                 pi.MoverIzquierda(tab);
                 Refrescar();
             }
+            if (keyData == Keys.Space) 
+            {
+                pi.Rotar(tab);
+                Refrescar();
+            }
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
