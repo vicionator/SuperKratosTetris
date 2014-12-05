@@ -74,53 +74,106 @@ namespace Tetris
         public bool MoverAbajo(ref List<Cuadro> PiezaI, Tablero tab, OrientacionPieza op)
         {
             bool verificar = false;
-            foreach (Cuadro c in PiezaI)
+            if (op == OrientacionPieza.Arriba || op == OrientacionPieza.Abajo)
             {
-                if (c.Estado == false)
+                foreach (Cuadro c in PiezaI)
                 {
-                    foreach (Cuadro ta in tab.cuadritos)
+                    if (c.Estado == false)
                     {
-                        if (ta.Estado == true)
+                        foreach (Cuadro ta in tab.cuadritos)
                         {
-                            if ((ta.coordenadas.X == PiezaI[0].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[0].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[1].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[2].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y)
-                                || (ta.coordenadas.X == PiezaI[1].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[1].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[0].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[2].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y)
-                                || (ta.coordenadas.X == PiezaI[2].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[2].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[1].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[0].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y)
-                                || (ta.coordenadas.X == PiezaI[3].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[1].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[2].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[0].coordenadas.Y))
+                            if (ta.Estado == true)
                             {
-                                foreach (Cuadro c2 in PiezaI)
+                                if ((ta.coordenadas.X == PiezaI[0].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[0].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[1].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[2].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y)
+                                    || (ta.coordenadas.X == PiezaI[1].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[1].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[0].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[2].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y)
+                                    || (ta.coordenadas.X == PiezaI[2].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[2].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[1].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[0].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y)
+                                    || (ta.coordenadas.X == PiezaI[3].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[1].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[2].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaI[0].coordenadas.Y))
                                 {
-                                    foreach (Cuadro t in tab.cuadritos)
+                                    foreach (Cuadro c2 in PiezaI)
                                     {
-                                        if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
+                                        foreach (Cuadro t in tab.cuadritos)
                                         {
-                                            t.Estado = true;
-                                            t.Brocha4 = c2.Brocha3;
+                                            if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
+                                            {
+                                                t.Estado = true;
+                                                t.Brocha4 = c2.Brocha3;
+                                            }
                                         }
+                                        c2.Estado = true;
                                     }
-                                    c2.Estado = true;
+                                    verificar = true;
+                                    break;
                                 }
-                                verificar = true;
-                                break;
                             }
+                        }
+                        c.coordenadas.Y += 20;
+                        if (PiezaI[PiezaI.Count - 1].coordenadas.Y == 380)
+                        {
+                            foreach (Cuadro c2 in PiezaI)
+                            {
+                                foreach (Cuadro t in tab.cuadritos)
+                                {
+                                    if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
+                                    {
+                                        t.Estado = true;
+                                        t.Brocha4 = c2.Brocha3;
+                                    }
+                                }
+                                c2.Estado = true;
+                            }
+                            verificar = true;
+                            break;
                         }
                     }
-                    c.coordenadas.Y += 20;
-                    if (PiezaI[PiezaI.Count - 1].coordenadas.Y == 380)
+                }
+            }
+            if (op == OrientacionPieza.Derecha || op == OrientacionPieza.Izquierda)
+            {
+                foreach (Cuadro c in PiezaI)
+                {
+                    if (c.Estado == false)
                     {
-                        foreach (Cuadro c2 in PiezaI)
+                        foreach (Cuadro ta in tab.cuadritos)
                         {
-                            foreach (Cuadro t in tab.cuadritos)
+                            if (ta.Estado == true)
                             {
-                                if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
+                                if ((ta.coordenadas.X == PiezaI[3].coordenadas.X && ta.coordenadas.Y - 20 == PiezaI[3].coordenadas.Y))
                                 {
-                                    t.Estado = true;
-                                    t.Brocha4 = c2.Brocha3;
+                                    foreach (Cuadro c2 in PiezaI)
+                                    {
+                                        foreach (Cuadro t in tab.cuadritos)
+                                        {
+                                            if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
+                                            {
+                                                t.Estado = true;
+                                                t.Brocha4 = c2.Brocha3;
+                                            }
+                                        }
+                                        c2.Estado = true;
+                                    }
+                                    verificar = true;
+                                    break;
                                 }
                             }
-                            c2.Estado = true;
                         }
-                        verificar = true;
-                        break;
+                        c.coordenadas.Y += 20;
+                        if (PiezaI[PiezaI.Count - 1].coordenadas.Y == 380)
+                        {
+                            foreach (Cuadro c2 in PiezaI)
+                            {
+                                foreach (Cuadro t in tab.cuadritos)
+                                {
+                                    if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
+                                    {
+                                        t.Estado = true;
+                                        t.Brocha4 = c2.Brocha3;
+                                    }
+                                }
+                                c2.Estado = true;
+                            }
+                            verificar = true;
+                            break;
+                        }
                     }
                 }
             }
@@ -130,70 +183,146 @@ namespace Tetris
         public void MoverDerecha(ref List<Cuadro> PiezaI, Tablero tab, OrientacionPieza op)
         {
             bool mover = true;
-            foreach (Cuadro c in PiezaI)
+            if (op == OrientacionPieza.Arriba || op == OrientacionPieza.Abajo)
             {
-                if (c.Estado == false)
+                foreach (Cuadro c in PiezaI)
                 {
-                    foreach (Cuadro t in tab.cuadritos)
+                    if (c.Estado == false)
                     {
-                        if (t.Estado == true)
+                        foreach (Cuadro t in tab.cuadritos)
                         {
-                            if ((t.coordenadas.X == PiezaI[3].coordenadas.X + 20 && t.coordenadas.Y == PiezaI[3].coordenadas.Y))
+                            if (t.Estado == true)
                             {
-                                //c.coordenadas.X -= 20;
-                                mover = false;
-                                break;
+                                if ((t.coordenadas.X == PiezaI[3].coordenadas.X + 20 && t.coordenadas.Y == PiezaI[3].coordenadas.Y))
+                                {
+                                    //c.coordenadas.X -= 20;
+                                    mover = false;
+                                    break;
+                                }
                             }
                         }
+                        if ((PiezaI[PiezaI.Count - 1].coordenadas.X == 180))
+                        {
+                            mover = false;
+                        }
                     }
-                    if ((PiezaI[PiezaI.Count - 1].coordenadas.X == 180))
+                }
+                foreach (Cuadro c in PiezaI)
+                {
+                    if (mover)
                     {
-                        mover = false;
+                        c.coordenadas.X += 20;
                     }
                 }
             }
-            foreach (Cuadro c in PiezaI)
+            if (op == OrientacionPieza.Derecha || op == OrientacionPieza.Izquierda) 
             {
-                if (mover)
+                foreach (Cuadro c in PiezaI)
                 {
-                    c.coordenadas.X += 20;
+                    if (c.Estado == false)
+                    {
+                        foreach (Cuadro t in tab.cuadritos)
+                        {
+                            if (t.Estado == true)
+                            {
+                                if ((t.coordenadas.X == PiezaI[0].coordenadas.X + 20 && t.coordenadas.Y == PiezaI[0].coordenadas.Y)
+                                    || (t.coordenadas.X == PiezaI[1].coordenadas.X + 20 && t.coordenadas.Y == PiezaI[1].coordenadas.Y)
+                                    || (t.coordenadas.X == PiezaI[2].coordenadas.X + 20 && t.coordenadas.Y == PiezaI[2].coordenadas.Y)
+                                    || (t.coordenadas.X == PiezaI[3].coordenadas.X + 20 && t.coordenadas.Y == PiezaI[3].coordenadas.Y))
+                                {
+                                    //c.coordenadas.X -= 20;
+                                    mover = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if ((PiezaI[PiezaI.Count - 1].coordenadas.X == 180))
+                        {
+                            mover = false;
+                        }
+                    }
                 }
+                foreach (Cuadro c in PiezaI)
+                {
+                    if (mover)
+                    {
+                        c.coordenadas.X += 20;
+                    }
+                }
+
             }
 
         }
         public void MoverIzquierda(ref List<Cuadro> PiezaI, Tablero tab, OrientacionPieza op)
         {
             bool mover = true;
-            foreach (Cuadro c in PiezaI)
+            if (op == OrientacionPieza.Arriba || op == OrientacionPieza.Abajo)
             {
-                if (c.Estado == false)
+                foreach (Cuadro c in PiezaI)
                 {
-                    foreach (Cuadro t in tab.cuadritos)
+                    if (c.Estado == false)
                     {
-                        if (t.Estado == true)
+                        foreach (Cuadro t in tab.cuadritos)
                         {
-                            if ((t.coordenadas.X == PiezaI[0].coordenadas.X - 20 && t.coordenadas.Y == PiezaI[0].coordenadas.Y))
+                            if (t.Estado == true)
                             {
-                                //c.coordenadas.X -= 20;
-                                mover = false;
-                                break;
+                                if ((t.coordenadas.X == PiezaI[0].coordenadas.X - 20 && t.coordenadas.Y == PiezaI[0].coordenadas.Y))
+                                {
+                                    //c.coordenadas.X -= 20;
+                                    mover = false;
+                                    break;
+                                }
                             }
                         }
-                    }
-                    if ((PiezaI[0].coordenadas.X == 0))
-                    {
-                        mover = false;
+                        if ((PiezaI[0].coordenadas.X == 0))
+                        {
+                            mover = false;
+                        }
                     }
                 }
-            }
-            foreach (Cuadro c in PiezaI)
-            {
-                if (mover)
+                foreach (Cuadro c in PiezaI)
                 {
-                    c.coordenadas.X -= 20;
+                    if (mover)
+                    {
+                        c.coordenadas.X -= 20;
+                    }
                 }
             }
-
+            if (op == OrientacionPieza.Derecha || op == OrientacionPieza.Izquierda) 
+            {
+                foreach (Cuadro c in PiezaI)
+                {
+                    if (c.Estado == false)
+                    {
+                        foreach (Cuadro t in tab.cuadritos)
+                        {
+                            if (t.Estado == true)
+                            {
+                                if ((t.coordenadas.X == PiezaI[0].coordenadas.X - 20 && t.coordenadas.Y == PiezaI[0].coordenadas.Y)
+                                    || (t.coordenadas.X == PiezaI[1].coordenadas.X - 20 && t.coordenadas.Y == PiezaI[1].coordenadas.Y)
+                                    ||(t.coordenadas.X == PiezaI[2].coordenadas.X - 20 && t.coordenadas.Y == PiezaI[2].coordenadas.Y)
+                                    ||(t.coordenadas.X == PiezaI[3].coordenadas.X - 20 && t.coordenadas.Y == PiezaI[3].coordenadas.Y))
+                                {
+                                    //c.coordenadas.X -= 20;
+                                    mover = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if ((PiezaI[0].coordenadas.X == 0))
+                        {
+                            mover = false;
+                        }
+                    }
+                }
+                foreach (Cuadro c in PiezaI)
+                {
+                    if (mover)
+                    {
+                        c.coordenadas.X -= 20;
+                    }
+                }
+            }
         }
         public List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op, List<Cuadro> Pieza)
         {
