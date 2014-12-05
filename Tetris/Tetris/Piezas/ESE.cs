@@ -42,7 +42,6 @@ namespace Tetris
             }
             return PiezaS;
         }
-
         public void Dibujar(ref List<Cuadro> PiezaS, PictureBox pb)
         {
             Graphics g = pb.CreateGraphics();
@@ -56,8 +55,6 @@ namespace Tetris
                 ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
             }
         }
-
-
         public bool MoverAbajo(ref List<Cuadro> PiezaS, Tablero tab)
         {
             bool verificar = false;
@@ -185,7 +182,22 @@ namespace Tetris
         }
         public List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op, List<Cuadro> Pieza)
         {
-            throw new NotImplementedException();
+            switch(op)
+            {
+                case OrientacionPieza.Arriba:
+                    op = OrientacionPieza.Izquierda;
+                    break;
+                case OrientacionPieza.Izquierda:
+                    op = OrientacionPieza.Abajo;
+                    break;
+                case OrientacionPieza.Abajo:
+                    op = OrientacionPieza.Derecha;
+                    break;
+                case OrientacionPieza.Derecha:
+                    op = OrientacionPieza.Arriba;
+                    break;
+            }
+            return Formar(Pieza[3].coordenadas, op);
         }
     }
 }
