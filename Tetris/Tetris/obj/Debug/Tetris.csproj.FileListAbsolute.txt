@@ -17,7 +17,6 @@ C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Form1.resources
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Properties.Resources.resources
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
 C:\Users\Vizardespa\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe.config
 C:\Users\Vizardespa\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.exe
 C:\Users\Vizardespa\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.pdb

@@ -21,10 +21,40 @@ namespace Tetris
         public List<Cuadro> Formar(Point co, OrientacionPieza op)
         {
             List<Cuadro> PiezaI = new List<Cuadro>();
-            for (int i = 0; i < 4; i++)
+            if (op == OrientacionPieza.Arriba)
             {
-                PiezaI.Add(new Cuadro(co));
-                co.X += 20;
+                for (int i = 0; i < 4; i++)
+                {
+                    PiezaI.Add(new Cuadro(co));
+                    co.X += 20;
+                }
+            }
+            if (op == OrientacionPieza.Izquierda) 
+            {
+                co.Y -= 20;
+                for (int i = 0; i < 4; i++)
+                {
+                    PiezaI.Add(new Cuadro(co));
+                    co.Y += 20;
+                }
+            }
+            if (op == OrientacionPieza.Abajo) 
+            {
+                co.X -= 20;
+                for (int i = 0; i < 4; i++)
+                {
+                    PiezaI.Add(new Cuadro(co));
+                    co.X += 20;
+                }
+            }
+            if (op == OrientacionPieza.Derecha) 
+            {
+                co.Y -= 20;
+                for (int i = 0; i < 4; i++)
+                {
+                    PiezaI.Add(new Cuadro(co));
+                    co.Y += 20;
+                }
             }
             return PiezaI;
         }
@@ -167,7 +197,22 @@ namespace Tetris
         }
         public List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op, List<Cuadro> Pieza)
         {
-            return Pieza;
+            switch (op)
+            {
+                case OrientacionPieza.Arriba:
+                    op = OrientacionPieza.Izquierda;
+                    break;
+                case OrientacionPieza.Izquierda:
+                    op = OrientacionPieza.Abajo;
+                    break;
+                case OrientacionPieza.Abajo:
+                    op = OrientacionPieza.Derecha;
+                    break;
+                case OrientacionPieza.Derecha:
+                    op = OrientacionPieza.Arriba;
+                    break;
+            }
+            return Formar(Pieza[1].coordenadas, op);
         }
     }
 }

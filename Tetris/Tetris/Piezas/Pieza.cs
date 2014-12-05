@@ -36,7 +36,7 @@ namespace Tetris.Piezas
         }
         public void Rotar(Tablero tab, PictureBox pb)
         {
-            pieza.Rotar(tab, ref OP, PiezaO);
+            PiezaO = pieza.Rotar(tab, ref OP, PiezaO);
         }
 
     }
