@@ -24,15 +24,15 @@ namespace Tetris.Piezas
         }
         public bool MoverAbajo(Tablero tab)
         {
-           return pieza.MoverAbajo(ref PiezaO, tab);
+           return pieza.MoverAbajo(ref PiezaO, tab,OP);
         }
         public void MoverDerecha(Tablero tab)
         {
-            pieza.MoverDerecha(ref PiezaO,tab);
+            pieza.MoverDerecha(ref PiezaO,tab,OP);
         }
         public void MoverIzquierda(Tablero tab)
         {
-            pieza.MoverIzquierda(ref PiezaO, tab);
+            pieza.MoverIzquierda(ref PiezaO, tab,OP);
         }
         public void Rotar(Tablero tab)
         {

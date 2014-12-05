@@ -88,7 +88,7 @@ namespace Tetris
             }
         }
 
-        public bool MoverAbajo(ref List<Cuadro> PiezaJ, Tablero tab)
+        public bool MoverAbajo(ref List<Cuadro> PiezaJ, Tablero tab, OrientacionPieza op)
         {
             bool verificar = false;
             foreach (Cuadro c in PiezaJ)
@@ -143,7 +143,7 @@ namespace Tetris
             return verificar;
 
         }
-        public void MoverDerecha(ref List<Cuadro> PiezaJ, Tablero tab)
+        public void MoverDerecha(ref List<Cuadro> PiezaJ, Tablero tab, OrientacionPieza op)
         {
             bool mover = true;
             foreach (Cuadro c in PiezaJ)
@@ -179,7 +179,7 @@ namespace Tetris
             }
 
         }
-        public void MoverIzquierda(ref List<Cuadro> PiezaJ, Tablero tab)
+        public void MoverIzquierda(ref List<Cuadro> PiezaJ, Tablero tab, OrientacionPieza op)
         {
             bool mover = true;
             foreach (Cuadro c in PiezaJ)
