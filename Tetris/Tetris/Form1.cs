@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tetris.Piezas;
 
 namespace Tetris
 {
@@ -15,20 +16,16 @@ namespace Tetris
         int[,] board = new int[10, 20];
         Point[,] Coordenadas = new Point[10, 20];
         Point inicial = new Point(0, 0);
-
         Tablero tab = new Tablero();
-        Cubo cu = new Cubo(new Point(40, 40));        
-
+        Pieza pi = new Pieza(new Cubo(), new Point(40,40));       
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             tab.CreacionTab();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             pictureBox1.Refresh();
@@ -58,26 +55,25 @@ namespace Tetris
             //Te te = new Te(new Point(40, 220));
             //te.Dibujar(pictureBox1);
         }
-
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Down)
             {
                 
-                if (cu.MoverAbajo(tab))
+                if (pi.MoverAbajo(tab))
                 {
-                    cu = new Cubo(new Point(40, 40));     
+                    pi = new Pieza(NuevaPieza(), new Point(40, 40));  
                 }
                 Refrescar();
             }
             if (keyData == Keys.Right) 
             {
-                cu.MoverDerecha(tab);
+                pi.MoverDerecha(tab);
                 Refrescar();
             }
             if (keyData == Keys.Left) 
             {
-                cu.MoverIzquierda(tab);
+                pi.MoverIzquierda(tab);
                 Refrescar();
             }
 
@@ -86,8 +82,40 @@ namespace Tetris
         public void Refrescar()
         {
             pictureBox1.Refresh();
-            cu.Dibujar(pictureBox1);
+            pi.Dibujar(pictureBox1);
             tab.Dibuja(pictureBox1);
         }
+        public IPieza NuevaPieza()
+        {
+            IPieza pieza=new Cubo();
+            Random r = new Random();
+            int x = r.Next(1, 8);
+            switch(x)
+            {
+                case 1:
+                    pieza= new Cubo();
+                    break;
+                case 2:
+                    pieza = new I();
+                    break;
+                case 3:
+                    pieza = new Jota();
+                    break;
+                case 4:
+                    pieza = new ELE();
+                    break;
+                case 5:
+                    pieza = new ESE();
+                    break;
+                case 6:
+                    pieza = new Te();
+                    break;
+                case 7:
+                    pieza = new Zeta();
+                    break;
+            }
+            return pieza;
+        }
+
     }
 }

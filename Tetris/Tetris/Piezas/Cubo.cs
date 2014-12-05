@@ -11,11 +11,12 @@ namespace Tetris
 {
     public class Cubo:IPieza
     {
-
-        public List<Cuadro> PiezaO = new List<Cuadro>();
-
-        public Cubo(Point co)
+        public Cubo()
         {
+        }
+        public List<Cuadro> Formar(Point co)
+        {
+            List<Cuadro> PiezaO = new List<Cuadro>();
             for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 2; j++)
@@ -26,8 +27,9 @@ namespace Tetris
                 co.X -= 40;
                 co.Y += 20;
             }
+            return PiezaO;
         }
-        public void Dibujar(PictureBox pb) 
+        public void Dibujar(ref List<Cuadro> PiezaO,PictureBox pb) 
         {
             Graphics g = pb.CreateGraphics();
             Rectangle rect;
@@ -40,10 +42,10 @@ namespace Tetris
                 ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
             }
         }
-        public bool MoverAbajo(Tablero tab)
+        public bool MoverAbajo(ref List<Cuadro> PiezaO,Tablero tab)
         {
             bool verificar=false;
-            foreach (Cuadro c in this.PiezaO)
+            foreach (Cuadro c in PiezaO)
                 {
                     if (c.Estado == false)
                     {
@@ -51,11 +53,11 @@ namespace Tetris
                         {
                             if (ta.Estado == true) 
                             {
-                                if ((ta.coordenadas.X == this.PiezaO[this.PiezaO.Count - 1].coordenadas.X && ta.coordenadas.Y - 20 == this.PiezaO[this.PiezaO.Count - 1].coordenadas.Y) 
-                                    ||(ta.coordenadas.X == this.PiezaO[this.PiezaO.Count - 2].coordenadas.X && ta.coordenadas.Y - 20 == this.PiezaO[this.PiezaO.Count - 2].coordenadas.Y 
-                                    && ta.coordenadas.Y - 20 == this.PiezaO[this.PiezaO.Count - 1].coordenadas.Y)) 
+                                if ((ta.coordenadas.X == PiezaO[PiezaO.Count - 1].coordenadas.X && ta.coordenadas.Y - 20 == PiezaO[PiezaO.Count - 1].coordenadas.Y) 
+                                    ||(ta.coordenadas.X == PiezaO[PiezaO.Count - 2].coordenadas.X && ta.coordenadas.Y - 20 == PiezaO[PiezaO.Count - 2].coordenadas.Y 
+                                    && ta.coordenadas.Y - 20 == PiezaO[PiezaO.Count - 1].coordenadas.Y)) 
                                 {
-                                    foreach (Cuadro c2 in this.PiezaO)
+                                    foreach (Cuadro c2 in PiezaO)
                                     {
                                         foreach (Cuadro t in tab.cuadritos)
                                         {
@@ -73,9 +75,9 @@ namespace Tetris
                             }
                         }
                         c.coordenadas.Y += 20;
-                        if (this.PiezaO[this.PiezaO.Count - 1].coordenadas.Y == 380)
+                        if (PiezaO[PiezaO.Count - 1].coordenadas.Y == 380)
                         {
-                            foreach (Cuadro c2 in this.PiezaO)
+                            foreach (Cuadro c2 in PiezaO)
                             {
                                 foreach (Cuadro t in tab.cuadritos)
                                 {
@@ -95,10 +97,10 @@ namespace Tetris
             return verificar;
                 
         }
-        public void MoverDerecha(Tablero tab)
+        public void MoverDerecha(ref List<Cuadro> PiezaO,Tablero tab)
         {
             bool mover = true;
-            foreach (Cuadro c in this.PiezaO)
+            foreach (Cuadro c in PiezaO)
             {
                 if (c.Estado == false)
                 {
@@ -106,8 +108,8 @@ namespace Tetris
                     {
                         if (t.Estado == true)
                         {
-                            if ((t.coordenadas.X == this.PiezaO[3].coordenadas.X + 20 && t.coordenadas.Y == this.PiezaO[3].coordenadas.Y) 
-                                || (t.coordenadas.X == this.PiezaO[1].coordenadas.X + 20 && t.coordenadas.Y == this.PiezaO[1].coordenadas.Y))
+                            if ((t.coordenadas.X == PiezaO[3].coordenadas.X + 20 && t.coordenadas.Y == PiezaO[3].coordenadas.Y) 
+                                || (t.coordenadas.X == PiezaO[1].coordenadas.X + 20 && t.coordenadas.Y == PiezaO[1].coordenadas.Y))
                             {
                                 //c.coordenadas.X -= 20;
                                 mover = false;
@@ -115,13 +117,13 @@ namespace Tetris
                             }
                         }
                     }
-                    if ((this.PiezaO[this.PiezaO.Count - 1].coordenadas.X == 180))
+                    if ((PiezaO[PiezaO.Count - 1].coordenadas.X == 180))
                     {
                         mover = false;
                     }
                 }
             }
-            foreach (Cuadro c in this.PiezaO)
+            foreach (Cuadro c in PiezaO)
             {
                 if (mover)
                 {
@@ -130,10 +132,10 @@ namespace Tetris
             }
 
         }
-        public void MoverIzquierda(Tablero tab)
+        public void MoverIzquierda(ref List<Cuadro> PiezaO,Tablero tab)
         {
             bool mover = true;
-            foreach (Cuadro c in this.PiezaO)
+            foreach (Cuadro c in PiezaO)
             {
                 if (c.Estado == false)
                 {
@@ -141,8 +143,8 @@ namespace Tetris
                     {
                         if (t.Estado == true)
                         {
-                            if ((t.coordenadas.X == this.PiezaO[2].coordenadas.X - 20 && t.coordenadas.Y == this.PiezaO[2].coordenadas.Y)
-                                || (t.coordenadas.X == this.PiezaO[0].coordenadas.X - 20 && t.coordenadas.Y == this.PiezaO[0].coordenadas.Y))
+                            if ((t.coordenadas.X == PiezaO[2].coordenadas.X - 20 && t.coordenadas.Y == PiezaO[2].coordenadas.Y)
+                                || (t.coordenadas.X == PiezaO[0].coordenadas.X - 20 && t.coordenadas.Y == PiezaO[0].coordenadas.Y))
                             {
                                 //c.coordenadas.X -= 20;
                                 mover = false;
@@ -150,13 +152,13 @@ namespace Tetris
                             }
                         }
                     }
-                    if ((this.PiezaO[2].coordenadas.X == 0))
+                    if ((PiezaO[2].coordenadas.X == 0))
                     {
                         mover = false;
                     }
                 }
             }
-            foreach (Cuadro c in this.PiezaO)
+            foreach (Cuadro c in PiezaO)
             {
                 if (mover)
                 {
@@ -165,8 +167,7 @@ namespace Tetris
             }
 
         }
-
-        public void Rotar(Tablero tab)
+        public void Rotar(ref List<Cuadro> PiezaO,Tablero tab)
         {
             throw new NotImplementedException();
         }

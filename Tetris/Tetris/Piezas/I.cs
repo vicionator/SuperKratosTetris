@@ -12,23 +12,27 @@ namespace Tetris
 {
     public class I:IPieza
     {
-        List<Cuadro> PiezaI = new List<Cuadro>();
-
-        public I(Point co)
+        public I()
         {
+            
+        }
+        public List<Cuadro> Formar(Point co)
+        {
+            List<Cuadro> PiezaO = new List<Cuadro>();
             for (int i = 0; i < 4; i++)
             {
-                PiezaI.Add(new Cuadro(co));
+                PiezaO.Add(new Cuadro(co));
                 co.X += 20;
             }
+            return PiezaO;
         }
-        public void Dibujar(PictureBox pb)
+        public void Dibujar(ref List<Cuadro> PiezaO, PictureBox pb)
         {
             Graphics g = pb.CreateGraphics();
             Rectangle rect;
             Size tam = new Size(20, 20);
 
-            foreach (Cuadro c in PiezaI)
+            foreach (Cuadro c in PiezaO)
             {
                 c.Estado = true;
                 rect = new Rectangle(c.coordenadas, tam);
@@ -36,5 +40,23 @@ namespace Tetris
                 ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
             }
         }
+        public void MoverDerecha(ref List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+        public void MoverIzquierda(ref List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+        public bool MoverAbajo(ref List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+        public void Rotar(ref List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

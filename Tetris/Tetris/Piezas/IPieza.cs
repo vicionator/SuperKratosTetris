@@ -10,10 +10,11 @@ namespace Tetris.Piezas
 {
     public interface IPieza
     {
-        void Dibujar(PictureBox pb);
-        void MoverDerecha(Tablero tab);
-        void MoverIzquierda(Tablero tab);
-        bool MoverAbajo(Tablero tab);
-        void Rotar(Tablero tab);
+        List<Cuadro> Formar(Point co);
+        void Dibujar(ref List<Cuadro> PiezaO,PictureBox pb);
+        void MoverDerecha(ref List<Cuadro> PiezaO,Tablero tab);
+        void MoverIzquierda(ref List<Cuadro> PiezaO,Tablero tab);
+        bool MoverAbajo(ref List<Cuadro> PiezaO,Tablero tab);
+        void Rotar(ref List<Cuadro> PiezaO,Tablero tab);
     }
 }

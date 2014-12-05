@@ -57,6 +57,7 @@
     <Compile Include="Piezas\I.cs" />
     <Compile Include="Piezas\IPieza.cs" />
     <Compile Include="Piezas\Jota.cs" />
+    <Compile Include="Piezas\Pieza.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tablero.cs" />

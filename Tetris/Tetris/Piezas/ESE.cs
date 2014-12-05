@@ -12,7 +12,10 @@ namespace Tetris
     {
         List<Cuadro> PiezaS = new List<Cuadro>();
         bool agrega = false;
+        public ESE()
+        {
 
+        }
         public ESE(Point co)
         {
             for (int i = 0; i < 2; i++)
@@ -51,6 +54,62 @@ namespace Tetris
                 g.FillRectangle(c.Brocha4, rect);
                 ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
             }
+        }
+
+        public List<Cuadro> Formar(Point co)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dibujar(List<Cuadro> PiezaO, PictureBox pb)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoverDerecha(List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoverIzquierda(List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool MoverAbajo(List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Rotar(List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void Dibujar(ref List<Cuadro> PiezaO, PictureBox pb)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoverDerecha(ref List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MoverIzquierda(ref List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool MoverAbajo(ref List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Rotar(ref List<Cuadro> PiezaO, Tablero tab)
+        {
+            throw new NotImplementedException();
         }
     }
 }
