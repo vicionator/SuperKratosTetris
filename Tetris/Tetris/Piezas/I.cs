@@ -165,18 +165,12 @@ namespace Tetris
             }
 
         }
-        public List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op)
+        public List<Cuadro> Rotar(Tablero tab, ref OrientacionPieza op, List<Cuadro> Pieza)
         {
-            if (op == OrientacionPieza.Abajo) 
+            if (op == OrientacionPieza.Abajo || op == OrientacionPieza.Arriba) 
             {
             }
-            if (op == OrientacionPieza.Arriba) 
-            {
-            }
-            if (op == OrientacionPieza.Derecha) 
-            {
-            }
-            if (op == OrientacionPieza.Izquierda) 
+            else if (op == OrientacionPieza.Derecha || op == OrientacionPieza.Izquierda) 
             {
             }
             return PiezaI;
