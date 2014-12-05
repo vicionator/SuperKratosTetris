@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using Tetris.Piezas;
+
 
 namespace Tetris
 {
-    public class I
+    public class I:IPieza
     {
         List<Cuadro> PiezaI = new List<Cuadro>();
 

@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using Tetris.Piezas;
 
 namespace Tetris
 {
-    public class Jota
+    public class Jota:IPieza
     {
         List<Cuadro> PiezaJ = new List<Cuadro>();
         bool agrega = false;
