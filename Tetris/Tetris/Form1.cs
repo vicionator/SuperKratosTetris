@@ -17,7 +17,8 @@ namespace Tetris
         Point inicial = new Point(0, 0);
 
         Tablero tab = new Tablero();
-        Cubo cu = new Cubo(new Point(40, 40));        
+        Cubo cu = new Cubo(new Point(40, 40));
+        I LetraI = new I(new Point(40, 40));
 
         public Form1()
         {
