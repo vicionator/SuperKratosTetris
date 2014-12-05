@@ -30,7 +30,6 @@ C:\Users\Vizardespa\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\T
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe.config
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.exe
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.pdb
-C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Form1.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Properties.Resources.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
@@ -38,3 +37,8 @@ C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Block.pn
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.pdb
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
+C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
+C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.DosJugadoresTablero.resources
+C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.EscribeIP.resources
+C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuDosJugadores.resources
+C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuPrincipal.resources

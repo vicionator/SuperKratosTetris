@@ -17,9 +17,11 @@ namespace Tetris
         Point[,] Coordenadas = new Point[10, 20];
         Point inicial = new Point(0, 0);
         Tablero tab = new Tablero();
-        Pieza pi = new Pieza(new Cubo(), new Point(40,40),OrientacionPieza.Arriba);       
-        public Form1()
+        Pieza pi = new Pieza(new Cubo(), new Point(40,40),OrientacionPieza.Arriba);
+        MenuPrincipal M;
+        public Form1(MenuPrincipal m)
         {
+            M = m;
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -143,6 +145,13 @@ namespace Tetris
                     break;
             }
             return op;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MenuPrincipal m = new MenuPrincipal();
+            m.Show();
+            this.Hide();
         }
     }
 }
