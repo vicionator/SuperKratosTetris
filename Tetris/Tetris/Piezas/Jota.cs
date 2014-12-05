@@ -16,14 +16,6 @@ namespace Tetris
         {
 
         }
-        public Jota(Point co)
-        {
-            
-        }
-
-        public void Dibujar(PictureBox pb)
-        {
-        }
 
         public List<Cuadro> Formar(Point co)
         {
@@ -57,64 +49,149 @@ namespace Tetris
             return PiezaJ;
         }
 
-        public void Dibujar(List<Cuadro> PiezaO, PictureBox pb)
+        public void Dibujar(ref List<Cuadro> PiezaJ, PictureBox pb)
         {
 
             Graphics g = pb.CreateGraphics();
             Rectangle rect;
             Size tam = new Size(20, 20);
 
-            foreach (Cuadro c in PiezaO)
+            foreach (Cuadro c in PiezaJ)
             {
-                c.Estado = true;
                 rect = new Rectangle(c.coordenadas, tam);
                 g.FillRectangle(c.Brocha2, rect);
                 ControlPaint.DrawBorder(g, rect, Color.Black, ButtonBorderStyle.Inset);
             }
         }
 
-        public void MoverDerecha(List<Cuadro> PiezaO, Tablero tab)
+        public bool MoverAbajo(ref List<Cuadro> PiezaJ, Tablero tab)
         {
-            throw new NotImplementedException();
-        }
+            bool verificar = false;
+            foreach (Cuadro c in PiezaJ)
+            {
+                if (c.Estado == false)
+                {
+                    foreach (Cuadro ta in tab.cuadritos)
+                    {
+                        if (ta.Estado == true)
+                        {
+                            if ((ta.coordenadas.X == PiezaJ[0].coordenadas.X && ta.coordenadas.Y - 20 == PiezaJ[0].coordenadas.Y && ta.coordenadas.Y - 20 == PiezaJ[3].coordenadas.Y)
+                                || (ta.coordenadas.X == PiezaJ[3].coordenadas.X && ta.coordenadas.Y - 20 == PiezaJ[3].coordenadas.Y
+                                && ta.coordenadas.Y - 20 == PiezaJ[0].coordenadas.Y))
+                            {
+                                foreach (Cuadro c2 in PiezaJ)
+                                {
+                                    foreach (Cuadro t in tab.cuadritos)
+                                    {
+                                        if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
+                                        {
+                                            t.Estado = true;
+                                            t.Brocha4 = c2.Brocha2;
+                                        }
+                                    }
+                                    c2.Estado = true;
+                                }
+                                verificar = true;
+                                break;
+                            }
+                        }
+                    }
+                    c.coordenadas.Y += 20;
+                    if (PiezaJ[PiezaJ.Count - 1].coordenadas.Y == 380)
+                    {
+                        foreach (Cuadro c2 in PiezaJ)
+                        {
+                            foreach (Cuadro t in tab.cuadritos)
+                            {
+                                if (c2.coordenadas.X == t.coordenadas.X && c2.coordenadas.Y == t.coordenadas.Y)
+                                {
+                                    t.Estado = true;
+                                    t.Brocha4 = c2.Brocha2;
+                                }
+                            }
+                            c2.Estado = true;
+                        }
+                        verificar = true;
+                        break;
+                    }
+                }
+            }
+            return verificar;
 
-        public void MoverIzquierda(List<Cuadro> PiezaO, Tablero tab)
+        }
+        public void MoverDerecha(ref List<Cuadro> PiezaJ, Tablero tab)
         {
-            throw new NotImplementedException();
-        }
+            bool mover = true;
+            foreach (Cuadro c in PiezaJ)
+            {
+                if (c.Estado == false)
+                {
+                    foreach (Cuadro t in tab.cuadritos)
+                    {
+                        if (t.Estado == true)
+                        {
+                            if ((t.coordenadas.X == PiezaJ[2].coordenadas.X + 20 && t.coordenadas.Y == PiezaJ[2].coordenadas.Y)
+                                || (t.coordenadas.X == PiezaJ[1].coordenadas.X + 20 && t.coordenadas.Y == PiezaJ[1].coordenadas.Y)
+                                || (t.coordenadas.X == PiezaJ[3].coordenadas.X + 20 && t.coordenadas.Y == PiezaJ[3].coordenadas.Y))
+                            {
+                                //c.coordenadas.X -= 20;
+                                mover = false;
+                                break;
+                            }
+                        }
+                    }
+                    if ((PiezaJ[PiezaJ.Count - 1].coordenadas.X == 180))
+                    {
+                        mover = false;
+                    }
+                }
+            }
+            foreach (Cuadro c in PiezaJ)
+            {
+                if (mover)
+                {
+                    c.coordenadas.X += 20;
+                }
+            }
 
-        public bool MoverAbajo(List<Cuadro> PiezaO, Tablero tab)
+        }
+        public void MoverIzquierda(ref List<Cuadro> PiezaJ, Tablero tab)
         {
-            throw new NotImplementedException();
+            bool mover = true;
+            foreach (Cuadro c in PiezaJ)
+            {
+                if (c.Estado == false)
+                {
+                    foreach (Cuadro t in tab.cuadritos)
+                    {
+                        if (t.Estado == true)
+                        {
+                            if ((t.coordenadas.X == PiezaJ[0].coordenadas.X - 20 && t.coordenadas.Y == PiezaJ[0].coordenadas.Y)
+                                || (t.coordenadas.X == PiezaJ[1].coordenadas.X - 20 && t.coordenadas.Y == PiezaJ[1].coordenadas.Y)
+                                || (t.coordenadas.X == PiezaJ[2].coordenadas.X - 20 && t.coordenadas.Y == PiezaJ[2].coordenadas.Y))
+                            {
+                                //c.coordenadas.X -= 20;
+                                mover = false;
+                                break;
+                            }
+                        }
+                    }
+                    if ((PiezaJ[0].coordenadas.X == 0))
+                    {
+                        mover = false;
+                    }
+                }
+            }
+            foreach (Cuadro c in PiezaJ)
+            {
+                if (mover)
+                {
+                    c.coordenadas.X -= 20;
+                }
+            }
+
         }
-
-        public void Rotar(List<Cuadro> PiezaO, Tablero tab)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void Dibujar(ref List<Cuadro> PiezaO, PictureBox pb)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MoverDerecha(ref List<Cuadro> PiezaO, Tablero tab)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MoverIzquierda(ref List<Cuadro> PiezaO, Tablero tab)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool MoverAbajo(ref List<Cuadro> PiezaO, Tablero tab)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Rotar(ref List<Cuadro> PiezaO, Tablero tab)
+        public void Rotar(ref List<Cuadro> PiezaJ, Tablero tab)
         {
             throw new NotImplementedException();
         }
