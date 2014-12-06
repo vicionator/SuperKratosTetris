@@ -171,5 +171,10 @@ namespace Tetris
         {
             return Pieza;
         }
+
+        public override string ToString()
+        {
+            return "Cubo";
+        }
     }
 }

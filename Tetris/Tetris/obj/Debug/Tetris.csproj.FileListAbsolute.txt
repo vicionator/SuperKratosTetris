@@ -37,7 +37,6 @@ C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Block.pn
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.pdb
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
-C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.DosJugadoresTablero.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.EscribeIP.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuDosJugadores.resources
@@ -47,3 +46,5 @@ C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuDosJugadores.resources
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuPrincipal.resources
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Creditos.resources
+C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Creditos.resources
+C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache

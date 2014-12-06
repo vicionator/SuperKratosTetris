@@ -559,5 +559,10 @@ namespace Tetris
             }
             return Formar(Pieza[2].coordenadas, op);
         }
+
+        public override string ToString()
+        {
+            return "ELE";
+        }
     }
 }

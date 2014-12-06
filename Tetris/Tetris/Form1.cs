@@ -13,9 +13,6 @@ namespace Tetris
 {
     public partial class Form1 : Form
     {
-        int[,] board = new int[10, 20];
-        Point[,] Coordenadas = new Point[10, 20];
-        Point inicial = new Point(0, 0);
         Tablero tab = new Tablero();
         Pieza pi = new Pieza(new Cubo(), new Point(100,0),OrientacionPieza.Arriba);
         MenuPrincipal M;
@@ -24,37 +21,8 @@ namespace Tetris
             M = m;
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Refresh();
-            //foreach (Cuadro c in cu.PiezaO)
-            //{
-            //    c.coordenadas.Y += 20;
-            //}
-            //cu.Dibujar(pictureBox1);
-
-
-            //ELE el = new ELE(new Point(40, 80));
-            //el.Dibujar(pictureBox1);
-
-            //Jota jo = new Jota(new Point(80, 40));
-            //jo.Dibujar(pictureBox1);
-
-            //I pi = new I(new Point(80, 100));
-            //pi.Dibujar(pictureBox1);
-
-            //ESE es = new ESE(new Point(40, 140));
-            //es.Dibujar(pictureBox1);
-
-            //Zeta ze = new Zeta(new Point(40, 180));
-            //ze.Dibujar(pictureBox1);
-
-            //Te te = new Te(new Point(40, 220));
-            //te.Dibujar(pictureBox1);
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -173,7 +141,5 @@ MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes))
                 this.Close();
             }
         }
-
-
     }
 }

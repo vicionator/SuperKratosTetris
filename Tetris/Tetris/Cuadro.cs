@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Runtime.Serialization;
 
 namespace Tetris
 {
+    [DataContract]
     public class Cuadro
     {
+        [DataMember]
         public Point coordenadas;
+        [DataMember]
         public bool Estado;
         public SolidBrush Brocha;
         public SolidBrush Brocha1;

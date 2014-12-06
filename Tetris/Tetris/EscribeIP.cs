@@ -19,7 +19,9 @@ namespace Tetris
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            DosJugadoresTablero DJT = new DosJugadoresTablero(false);
+            DJT.Show();
+            this.Hide();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

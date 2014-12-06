@@ -326,5 +326,9 @@ namespace Tetris
             }
             return Formar(Pieza[3].coordenadas, op);
         }
+        public override string ToString()
+        {
+            return "ESE";
+        }
     }
 }

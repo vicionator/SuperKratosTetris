@@ -5,14 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
 
 namespace Tetris.Piezas
 {
+    [DataContract]
     public class Pieza
     {
-        List<Cuadro> PiezaO;
-        IPieza pieza { get; set; }
-        OrientacionPieza OP;
+        [DataMember]
+        public List<Cuadro> PiezaO;
+        [DataMember]
+        public IPieza pieza { get; set; }
+        [DataMember]
+        public OrientacionPieza OP;
         public Pieza(IPieza _pieza,Point co, OrientacionPieza op)
         {
             pieza = _pieza;
@@ -38,6 +43,9 @@ namespace Tetris.Piezas
         {
             PiezaO = pieza.Rotar(tab, ref OP, PiezaO);
         }
-
+        public List<Cuadro> Piezas()
+        {
+            return PiezaO;
+        }
     }
 }
