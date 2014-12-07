@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tetris.Piezas;
 using System.Runtime.Serialization.Json;
+using System.Drawing;
 
 namespace Tetris
 {
@@ -28,6 +29,14 @@ namespace Tetris
 
         Tablero tab = new Tablero();
         Pieza pi = new Pieza(new Cubo(), new Point(100, 0), OrientacionPieza.Arriba);
+        bool iniciado = true;
+        public SolidBrush Brocha = new SolidBrush(Color.Red);
+        public SolidBrush Brocha1 = new SolidBrush(Color.Orange);
+        public SolidBrush Brocha2 = new SolidBrush(Color.Yellow);
+        public SolidBrush Brocha3 = new SolidBrush(Color.Green);
+        public SolidBrush Brocha4 = new SolidBrush(Color.Blue);
+        public SolidBrush Brocha5 = new SolidBrush(Color.Indigo);
+        public SolidBrush Brocha6 = new SolidBrush(Color.Violet);
         private void DosJugadoresTablero_Load(object sender, EventArgs e)
         {
 
@@ -148,104 +157,117 @@ namespace Tetris
                     TcpListener myList = new TcpListener(ipAd, 8001);
                     myList.Start();
 
-                    //Recibir(Pieza, Tablero)
-                    /* Socket s = myList.AcceptSocket();
-                     byte[] b = new byte[1000000];
-                     int k = s.Receive(b);
-                     /*for (int i = 0; i < k; i++)
-                         Console.Write(Convert.ToChar(b[i]));*/
 
                     //Pieza
                     Socket s = myList.AcceptSocket();
                     byte[] b = new byte[1000000];
                     int k = s.Receive(b);
-                    List<Cuadro> cuadros = new List<Cuadro>();
-                    int x=-1;
-                    int y=-1;
-                    string aux = "";
-                    for (int i = 0; i < k; i++)
+
+                    MemoryStream memStream = new MemoryStream();
+                    BinaryFormatter binForm = new BinaryFormatter();
+                    memStream.Write(b, 0, b.Length);
+                    memStream.Seek(0, SeekOrigin.Begin);
+                    Pieza p = (Pieza)binForm.Deserialize(memStream);
+
+                    if (p.pieza.ToString() == "Cubo") 
                     {
-                        if (Convert.ToChar(b[i]) != ',')
-                        aux += Convert.ToChar(b[i]);
-                        if (Convert.ToChar(b[i])==','&&x==-1)
+                        foreach (Cuadro c in p.PiezaO)
                         {
-                            x = int.Parse(aux);
-                            aux = "";
-                        }
-                        else if(Convert.ToChar(b[i])==','&&x!=-1)
-                        {
-                            y = int.Parse(aux);
-                            aux = "";
-                        }
-                        else if(x!=-1&&y!=-1)
-                        {
-                            cuadros.Add(new Cuadro(new Point(x, y)));
-                            x = -1;
-                            y = -1;
-                            aux = "";
+                            c.Brocha = Brocha;
+                            c.Brocha1 = Brocha;
+                            c.Brocha2 = Brocha;
+                            c.Brocha3 = Brocha;
+                            c.Brocha4 = Brocha;
+                            c.Brocha5 = Brocha;
+                            c.Brocha6 = Brocha;
                         }
                     }
-
-                    Socket s1 = myList.AcceptSocket();
-                    byte[] b1 = new byte[1000000];
-                    int k1 = s1.Receive(b1);
-                    string pieza = "";
-                    for (int i = 0; i < k1; i++)
+                    if (p.pieza.ToString() == "I")
                     {
-                        pieza+=Convert.ToChar(b1[i]);
+                        foreach (Cuadro c in p.PiezaO)
+                        {
+                            c.Brocha = Brocha3;
+                            c.Brocha1 = Brocha3;
+                            c.Brocha2 = Brocha3;
+                            c.Brocha3 = Brocha3;
+                            c.Brocha4 = Brocha3;
+                            c.Brocha5 = Brocha3;
+                            c.Brocha6 = Brocha3;
+                        }
                     }
-
-                    Socket s2 = myList.AcceptSocket();
-                    byte[] b2 = new byte[1000000];
-                    int k2 = s2.Receive(b2);
-                    string OP = "";
-                    for (int i = 0; i < k2; i++)
+                    if (p.pieza.ToString() == "Jota")
                     {
-                        OP += Convert.ToChar(b2[i]);
+                        foreach (Cuadro c in p.PiezaO)
+                        {
+                            c.Brocha = Brocha2;
+                            c.Brocha1 = Brocha2;
+                            c.Brocha2 = Brocha2;
+                            c.Brocha3 = Brocha2;
+                            c.Brocha4 = Brocha2;
+                            c.Brocha5 = Brocha2;
+                            c.Brocha6 = Brocha2;
+                        }
                     }
-                    IPieza ip = new Cubo();
-                    switch(pieza)
+                    if (p.pieza.ToString() == "Te")
                     {
-                        case "Cubo":
-                            ip = new Cubo();
-                            break;
+                        foreach (Cuadro c in p.PiezaO)
+                        {
+                            c.Brocha = Brocha6;
+                            c.Brocha1 = Brocha6;
+                            c.Brocha2 = Brocha6;
+                            c.Brocha3 = Brocha6;
+                            c.Brocha4 = Brocha6;
+                            c.Brocha5 = Brocha6;
+                            c.Brocha6 = Brocha6;
+                        }
                     }
-                    OrientacionPieza op = OrientacionPieza.Arriba;
-                    switch (pieza)
+                    if (p.pieza.ToString() == "ESE")
                     {
-                        case "Arriba":
-                            op = OrientacionPieza.Arriba;
-                            break;
+                        foreach (Cuadro c in p.PiezaO)
+                        {
+                            c.Brocha = Brocha4;
+                            c.Brocha1 = Brocha4;
+                            c.Brocha2 = Brocha4;
+                            c.Brocha3 = Brocha4;
+                            c.Brocha4 = Brocha4;
+                            c.Brocha5 = Brocha4;
+                            c.Brocha6 = Brocha4;
+                        }
                     }
-                    Pieza p = new Pieza(ip, cuadros[0].coordenadas, op);
-
-                   //Tablero
-                   //TcpClient client2 = myList.AcceptTcpClient();
-                   //NetworkStream strm2 = client.GetStream();
-                   //IFormatter formatter2 = new BinaryFormatter();
-                   //Tablero t = (Tablero)formatter.Deserialize(strm2); // you have to cast the deserialized object
-
-                   //Enviar(Pieza, Tablero)
-                   /*ASCIIEncoding asen = new ASCIIEncoding();
-                   string m = "Servidor: " + Console.ReadLine() + "\n";
-                   s.Send(asen.GetBytes(m));
-                   s.Close();
-                   myList.Stop();*/
-
-                    /*//Pieza
-                    IFormatter formatterP = new BinaryFormatter(); // the formatter that will serialize my object on my stream 
-                    NetworkStream strmP = client.GetStream(); // the stream 
-                    formatterP.Serialize(strm, pi); // the serialization process 
-
-                    //Tablero
-                    IFormatter formatterT = new BinaryFormatter(); // the formatter that will serialize my object on my stream 
-                    NetworkStream strmT = client.GetStream(); // the stream 
-                    formatterT.Serialize(strm, tab); // the serialization process */
+                    if (p.pieza.ToString() == "ELE")
+                    {
+                        foreach (Cuadro c in p.PiezaO)
+                        {
+                            c.Brocha = Brocha1;
+                            c.Brocha1 = Brocha1;
+                            c.Brocha2 = Brocha1;
+                            c.Brocha3 = Brocha1;
+                            c.Brocha4 = Brocha1;
+                            c.Brocha5 = Brocha1;
+                            c.Brocha6 = Brocha1;
+                        }
+                    }
+                    if (p.pieza.ToString() == "Zeta")
+                    {
+                        foreach (Cuadro c in p.PiezaO)
+                        {
+                            c.Brocha = Brocha5;
+                            c.Brocha1 = Brocha5;
+                            c.Brocha2 = Brocha5;
+                            c.Brocha3 = Brocha5;
+                            c.Brocha4 = Brocha5;
+                            c.Brocha5 = Brocha5;
+                            c.Brocha6 = Brocha5;
+                        }
+                    }
+                    
                     RefrescarS(PBJugador2, p, tab);
+                    myList.Stop();
+
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Error en conexion Servidor");
+                    MessageBox.Show(e.Message);
                 }
             }
             else
@@ -253,80 +275,37 @@ namespace Tetris
                 try
                 {
                     TcpClient tcpclnt = new TcpClient();
-                    tcpclnt.Connect("10.10.188.6", 8001);
-                    //tcpclnt.Connect("10.10.181.43", 8001);
-                    //tcpclnt.Connect("192.168.1.78", 8001);
-                    //Enviar(Pieza, Tablero)
+                    tcpclnt.Connect("192.168.1.84", 8001);
 
-                    /*String str = "Cliente: " + Console.ReadLine() + "\n";
-                    Stream stm = tcpclnt.GetStream();
-                    ASCIIEncoding asen = new ASCIIEncoding();
-                    byte[] ba = asen.GetBytes(str);
-                    //Console.WriteLine("Enviando.....");
-                    stm.Write(ba, 0, ba.Length);*/
-                    ASCIIEncoding asen = new ASCIIEncoding();
-                    //Pieza
-                    NetworkStream streamC = tcpclnt.GetStream();
-                    List<string> cord = new List<string>();
-                    foreach (Cuadro c in pi.PiezaO)
+
+                    byte[] bytes;
+                    IFormatter formatter = new BinaryFormatter();
+                    using (MemoryStream stream = new MemoryStream())
                     {
-                        cord.Add(c.coordenadas.X.ToString());
-                        cord.Add(c.coordenadas.Y.ToString());
+                        formatter.Serialize(stream, pi);
+                        bytes = stream.ToArray();
                     }
-                    byte[] ba1 = asen.GetBytes(string.Join(",",cord));
-                    streamC.Write(ba1, 0, ba1.Length);
+                    NetworkStream cosa = tcpclnt.GetStream();
+                    cosa.Write(bytes, 0, bytes.Length);
 
-                    String str = pi.pieza.ToString();
-                    NetworkStream streamIP = tcpclnt.GetStream();
-                    byte[] ba2 = asen.GetBytes(str);
-                    streamIP.Write(ba2, 0, ba2.Length);
-
-                    NetworkStream streamO = tcpclnt.GetStream();
-                    byte[] ba3 = asen.GetBytes(pi.OP.ToString());
-                    streamO.Write(ba3, 0, ba3.Length);
-
-                    //Pieza
-                    // IFormatter formatter = new BinaryFormatter(); // the formatter that will serialize my object on my stream 
-                    // NetworkStream strm = tcpclnt.GetStream(); // the stream 
-                    // formatter.Serialize(strm, pi); // the serialization process 
-
-                    //Tablero
-                    //IFormatter formatterT = new BinaryFormatter(); // the formatter that will serialize my object on my stream 
-                    //NetworkStream strmT = tcpclnt.GetStream(); // the stream 
-                    //formatterT.Serialize(strm, tab); // the serialization process 
-
-                    //Tablero
-                    /*MemoryStream stream2 = new MemoryStream();
-                    DataContractJsonSerializer sert = new DataContractJsonSerializer(typeof(Tablero));
-                    sert.WriteObject(stream1, tab);
-                    stream2.Position = 0;
-                    Tablero t1 = (Tablero)sert.ReadObject(stream2);*/
-
-                    //Recibir(Pieza, Tablero)
-                    /*byte[] bb = new byte[100];
-                    int k = stm.Read(bb, 0, 100);
-                    for (int i = 0; i < k; i++)
-                        Console.Write(Convert.ToChar(bb[i]));
-                    tcpclnt.Close();*/
-
-                    /* //Pieza
-                     TcpClient client = tcpclnt.AcceptTcpClient();
-                     NetworkStream strm = tcpclnt.GetStream();
-                     IFormatter formatter = new BinaryFormatter();
-                     Pieza p = (Pieza)formatter.Deserialize(strm); // you have to cast the deserialized object
-
-                     //Tablero
-                     TcpClient client2 = tcpclnt.AcceptTcpClient();
-                     NetworkStream strm2 = tcpclnt.GetStream();
-                     IFormatter formatter2 = new BinaryFormatter();
-                     Tablero t = (Tablero)formatter.Deserialize(strm2); // you have to cast the deserialized object*/
+                    
                 }
                 catch(Exception e)
                 {
-                    MessageBox.Show("Error en conexion Cliente");
+                    MessageBox.Show(e.Message);
                 }
             }
            
+        }
+
+        private void DosJugadoresTablero_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+
         }
 
 

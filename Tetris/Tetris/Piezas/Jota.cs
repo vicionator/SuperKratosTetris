@@ -9,6 +9,7 @@ using Tetris.Piezas;
 
 namespace Tetris
 {
+    [Serializable]
     public class Jota:IPieza
     {
 
@@ -558,6 +559,10 @@ namespace Tetris
                     break;
             }
             return Formar(Pieza[3].coordenadas, op);
+        }
+        public override string ToString()
+        {
+            return "Jota";
         }
     }
 }

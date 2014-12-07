@@ -9,14 +9,14 @@ using System.Runtime.Serialization;
 
 namespace Tetris.Piezas
 {
-    [DataContract]
+    [Serializable]
     public class Pieza
     {
-        [DataMember]
+        
         public List<Cuadro> PiezaO;
-        [DataMember]
+       
         public IPieza pieza { get; set; }
-        [DataMember]
+
         public OrientacionPieza OP;
         public Pieza(IPieza _pieza,Point co, OrientacionPieza op)
         {

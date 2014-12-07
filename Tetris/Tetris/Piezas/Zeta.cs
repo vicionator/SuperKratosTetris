@@ -9,6 +9,7 @@ using Tetris.Piezas;
 
 namespace Tetris
 {
+    [Serializable]
     public class Zeta:IPieza
     {
         public Zeta()
@@ -326,6 +327,10 @@ namespace Tetris
                     break;
             }
             return Formar(Pieza[2].coordenadas, op);
+        }
+        public override string ToString()
+        {
+            return "Zeta";
         }
     }
 }

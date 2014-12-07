@@ -9,6 +9,7 @@ using Tetris.Piezas;
 
 namespace Tetris
 {
+    [Serializable]
     public class Te :IPieza
     {
         
@@ -553,6 +554,10 @@ namespace Tetris
                     break;
             }
             return Formar(Pieza[1].coordenadas, op);
+        }
+        public override string ToString()
+        {
+            return "Te";
         }
     }
 }

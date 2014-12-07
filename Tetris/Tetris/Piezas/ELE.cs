@@ -9,6 +9,7 @@ using Tetris.Piezas;
 
 namespace Tetris
 {
+    [Serializable]
     public class ELE:IPieza
     {
 

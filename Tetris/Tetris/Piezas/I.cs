@@ -10,6 +10,7 @@ using Tetris.Piezas;
 
 namespace Tetris
 {
+    [Serializable]
     public class I:IPieza
     {
         List<Cuadro> PiezaI = new List<Cuadro>();
@@ -342,6 +343,10 @@ namespace Tetris
                     break;
             }
             return Formar(Pieza[1].coordenadas, op);
+        }
+        public override string ToString()
+        {
+            return "I";
         }
     }
 }

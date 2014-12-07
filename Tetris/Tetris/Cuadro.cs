@@ -8,19 +8,26 @@ using System.Runtime.Serialization;
 
 namespace Tetris
 {
-    [DataContract]
+    [Serializable]
     public class Cuadro
     {
         [DataMember]
         public Point coordenadas;
         [DataMember]
         public bool Estado;
+        [NonSerialized]
         public SolidBrush Brocha;
+        [NonSerialized]
         public SolidBrush Brocha1;
+        [NonSerialized]
         public SolidBrush Brocha2;
+        [NonSerialized]
         public SolidBrush Brocha3;
+        [NonSerialized]
         public SolidBrush Brocha4;
+        [NonSerialized]
         public SolidBrush Brocha5;
+        [NonSerialized]
         public SolidBrush Brocha6;
         
         public Cuadro(Point coord)

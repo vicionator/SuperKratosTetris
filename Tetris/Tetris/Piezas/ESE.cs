@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Tetris.Piezas;
 namespace Tetris
 {
+    [Serializable]
     public class ESE:IPieza
     {
         
