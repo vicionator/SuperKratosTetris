@@ -28,6 +28,7 @@ namespace Tetris
         }
 
         Tablero tab = new Tablero();
+        Tablero tab2= new Tablero();
         Pieza pi = new Pieza(new Cubo(), new Point(100, 0), OrientacionPieza.Arriba);
         bool iniciado = true;
         public SolidBrush Brocha = new SolidBrush(Color.Red);
@@ -87,11 +88,11 @@ namespace Tetris
             pi.Dibujar(PBJugador1);
             tab.Dibuja(PBJugador1);
         }
-        public void RefrescarS(PictureBox pb, Pieza Pie,Tablero Tab)
+        public void RefrescarS(Pieza Pie)
         {
-            pb.Refresh();
-            Pie.Dibujar(pb);
-            Tab.Dibuja(pb);
+            PBJugador2.Refresh();
+            Pie.Dibujar(PBJugador2);
+            tab2.Dibuja(PBJugador2);
         }
         public IPieza NuevaPieza()
         {
@@ -146,7 +147,6 @@ namespace Tetris
             }
             return op;
         }
-
         public void EnviarRecibir()
         {
             if (Servidor)
@@ -261,7 +261,7 @@ namespace Tetris
                         }
                     }
                     
-                    RefrescarS(PBJugador2, p, tab);
+                    RefrescarS(p);
                     myList.Stop();
 
                 }
@@ -275,7 +275,7 @@ namespace Tetris
                 try
                 {
                     TcpClient tcpclnt = new TcpClient();
-                    tcpclnt.Connect("192.168.1.84", 8001);
+                    tcpclnt.Connect("192.168.1.78", 8001);
 
 
                     byte[] bytes;
@@ -297,12 +297,10 @@ namespace Tetris
             }
            
         }
-
         private void DosJugadoresTablero_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
 
