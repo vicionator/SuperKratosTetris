@@ -176,8 +176,8 @@ namespace Tetris
                         PiezaB[j] = b[j];
                     }
                     byte[] TableroB = new byte[b.Length-PiezaB.Length];
-                    int l = b.Length+1;
-                    for (int g = 0; g < TableroB.Length; g++)
+                    int l = PiezaB.Length + 1;
+                    for (int g = 0; g < TableroB.Length-1; g++)
                     {
                         TableroB[g] = b[l];
                         l++;
@@ -192,7 +192,7 @@ namespace Tetris
                     BinaryFormatter binFormT = new BinaryFormatter();
                     memStreamT.Write(TableroB, 0, TableroB.Length);
                     memStreamT.Seek(0, SeekOrigin.Begin);
-                    Tablero t = (Tablero)binForm.Deserialize(memStream);
+                    Tablero t = (Tablero)binFormT.Deserialize(memStreamT);
 
                     if (p.pieza.ToString() == "Cubo") 
                     {
