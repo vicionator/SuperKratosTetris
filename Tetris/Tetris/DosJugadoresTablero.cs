@@ -163,11 +163,36 @@ namespace Tetris
                     byte[] b = new byte[1000000];
                     int k = s.Receive(b);
 
+                    int c2 = 0;
+                    for (int i = 0; i < b.Length; i++)
+                    {
+                        c2++;
+                        if (Convert.ToChar(b[i]) == ';')
+                            break;
+                    }
+                    byte[] PiezaB = new byte[c2];
+                    for (int j = 0; j < PiezaB.Length; j++)
+                    {
+                        PiezaB[j] = b[j];
+                    }
+                    byte[] TableroB = new byte[b.Length-PiezaB.Length];
+                    int l = b.Length+1;
+                    for (int g = 0; g < TableroB.Length; g++)
+                    {
+                        TableroB[g] = b[l];
+                        l++;
+                    }
                     MemoryStream memStream = new MemoryStream();
                     BinaryFormatter binForm = new BinaryFormatter();
-                    memStream.Write(b, 0, b.Length);
+                    memStream.Write(PiezaB, 0, PiezaB.Length);
                     memStream.Seek(0, SeekOrigin.Begin);
                     Pieza p = (Pieza)binForm.Deserialize(memStream);
+
+                    MemoryStream memStreamT = new MemoryStream();
+                    BinaryFormatter binFormT = new BinaryFormatter();
+                    memStreamT.Write(TableroB, 0, TableroB.Length);
+                    memStreamT.Seek(0, SeekOrigin.Begin);
+                    Tablero t = (Tablero)binForm.Deserialize(memStream);
 
                     if (p.pieza.ToString() == "Cubo") 
                     {
@@ -260,6 +285,7 @@ namespace Tetris
                             c.Brocha6 = Brocha5;
                         }
                     }
+                    tab2 = t;
                     RefrescarS(p);
                     myList.Stop();
 
