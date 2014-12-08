@@ -57,7 +57,7 @@ namespace Tetris
                     {
                         MessageBox.Show("Haz Perdido!!\nPuntos: " + lbPuntos.Text);
                         Application.Exit();
-                        tab = new Tablero();
+                        //tab = new Tablero();
                     }
                     lbPuntos.Text = tab.ObtenerPuntos().ToString();
                 }
