@@ -157,40 +157,67 @@ namespace Tetris
                     TcpListener myList = new TcpListener(ipAd, 8001);
                     myList.Start();
 
+                    /*
+                                        //Pieza
+                                        Socket s = myList.AcceptSocket();
+                                        byte[] b = new byte[1000000];
+                                        int k = s.Receive(b);
+
+                                       //Pieza
+                                        int c2 = 0;
+                                        for (int i = 0; i < b.Length; i++)
+                                        {
+                                            c2++;
+                                            if (Convert.ToChar(b[i]) == ';')
+                                                break;
+                                        }
+                                        byte[] PiezaB = new byte[c2];
+                                        for (int j = 0; j < PiezaB.Length; j++)
+                                        {
+                                            PiezaB[j] = b[j];
+                                        }
+
+                                        //Tablero
+                                        int c3 = (k - c2);
+                                        byte[] TableroB = new byte[c3];
+                                        int l =c2;
+                                        for (int g = 0; g < TableroB.Length; g++)
+                                        {
+                                            TableroB[g] = b[l];
+                                            l++;
+                                        }
+
+                                        MemoryStream memStream = new MemoryStream();
+                                        BinaryFormatter binForm = new BinaryFormatter();
+                                        memStream.Write(PiezaB, 0, PiezaB.Length);
+                                        memStream.Seek(0, SeekOrigin.Begin);
+                                        Pieza p = (Pieza)binForm.Deserialize(memStream);
+
+                                        MemoryStream memStreamT = new MemoryStream();
+                                        BinaryFormatter binFormT = new BinaryFormatter();
+                                        memStreamT.Write(TableroB, 0, TableroB.Length);
+                                        memStreamT.Seek(0, SeekOrigin.Begin);
+                                        Tablero t = (Tablero)binFormT.Deserialize(memStreamT);
+                     * */
 
                     //Pieza
                     Socket s = myList.AcceptSocket();
                     byte[] b = new byte[1000000];
                     int k = s.Receive(b);
 
-                    int c2 = 0;
-                    for (int i = 0; i < b.Length; i++)
-                    {
-                        c2++;
-                        if (Convert.ToChar(b[i]) == ';')
-                            break;
-                    }
-                    byte[] PiezaB = new byte[c2];
-                    for (int j = 0; j < PiezaB.Length; j++)
-                    {
-                        PiezaB[j] = b[j];
-                    }
-                    byte[] TableroB = new byte[b.Length-PiezaB.Length];
-                    int l = PiezaB.Length + 1;
-                    for (int g = 0; g < TableroB.Length-1; g++)
-                    {
-                        TableroB[g] = b[l];
-                        l++;
-                    }
                     MemoryStream memStream = new MemoryStream();
                     BinaryFormatter binForm = new BinaryFormatter();
-                    memStream.Write(PiezaB, 0, PiezaB.Length);
+                    memStream.Write(b, 0, b.Length);
                     memStream.Seek(0, SeekOrigin.Begin);
                     Pieza p = (Pieza)binForm.Deserialize(memStream);
 
+                    //Tablero
+                    Socket s1 = myList.AcceptSocket();
+                    byte[] b1 = new byte[1000000];
+                    int k1 = s.Receive(b1);
                     MemoryStream memStreamT = new MemoryStream();
                     BinaryFormatter binFormT = new BinaryFormatter();
-                    memStreamT.Write(TableroB, 0, TableroB.Length);
+                    memStreamT.Write(b1, 0, b1.Length);
                     memStreamT.Seek(0, SeekOrigin.Begin);
                     Tablero t = (Tablero)binFormT.Deserialize(memStreamT);
 
