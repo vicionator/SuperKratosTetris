@@ -330,7 +330,9 @@ namespace Tetris
                     {
                         final[j] = bytesTab[k];
                         k++;
-                    } 
+                    }
+                    final[final.Length] = Convert.ToByte(';');
+
                     
 
                     NetworkStream cosa = tcpclnt.GetStream();
