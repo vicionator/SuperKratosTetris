@@ -260,7 +260,6 @@ namespace Tetris
                             c.Brocha6 = Brocha5;
                         }
                     }
-                    
                     RefrescarS(p);
                     myList.Stop();
 
@@ -278,15 +277,38 @@ namespace Tetris
                     tcpclnt.Connect("192.168.1.78", 8001);
 
 
-                    byte[] bytes;
+                    byte[] bytesPieza = new byte[1];
                     IFormatter formatter = new BinaryFormatter();
                     using (MemoryStream stream = new MemoryStream())
                     {
                         formatter.Serialize(stream, pi);
-                        bytes = stream.ToArray();
+                        bytesPieza = stream.ToArray();
                     }
+                    byte[] bytesTab=new byte[1];
+                    IFormatter formattertab = new BinaryFormatter();
+                    using (MemoryStream streamtab = new MemoryStream())
+                    {
+                        formattertab.Serialize(streamtab, tab);
+                        bytesTab= streamtab.ToArray();
+                    }
+
+                    byte[] final = new byte[bytesPieza.Length + bytesTab.Length];
+
+                    for (int i = 0; i < bytesPieza.Length; i++)
+                    {
+                        final[i] = bytesPieza[i];
+                    }
+                    final[bytesPieza.Length] = Convert.ToByte(';');
+                    int k = 0;
+                    for (int j = bytesPieza.Length+1; j < bytesTab.Length; j++)
+                    {
+                        final[j] = bytesTab[k];
+                        k++;
+                    } 
+                    
+
                     NetworkStream cosa = tcpclnt.GetStream();
-                    cosa.Write(bytes, 0, bytes.Length);
+                    cosa.Write(final, 0, final.Length);
 
                     
                 }

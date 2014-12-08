@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
 
 namespace Tetris
 {
+    [Serializable]
     public class Tablero
     {
+        [DataMember]
         public List<Cuadro> cuadritos = new List<Cuadro>();
         Point inicial = new Point(0, 0);
         Rectangle rect;
