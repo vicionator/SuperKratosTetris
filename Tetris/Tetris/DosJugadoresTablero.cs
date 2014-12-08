@@ -221,6 +221,18 @@ namespace Tetris
                     memStreamT.Seek(0, SeekOrigin.Begin);
                     Tablero t = (Tablero)binFormT.Deserialize(memStreamT);
 
+                    foreach (Cuadro x in t.cuadritos)
+                    {
+                        x.Brocha = Brocha;
+                        x.Brocha1 = Brocha;
+                        x.Brocha2 = Brocha;
+                        x.Brocha3 = Brocha;
+                        x.Brocha4 = Brocha;
+                        x.Brocha5 = Brocha;
+                        x.Brocha6 = Brocha;
+
+                    }
+
                     if (p.pieza.ToString() == "Cubo") 
                     {
                         foreach (Cuadro c in p.PiezaO)
