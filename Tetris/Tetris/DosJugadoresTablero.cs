@@ -54,6 +54,7 @@ namespace Tetris
                     if (tab.Perder())
                     {
                         MessageBox.Show("Haz Perdido!!\nPuntos: " + lbPuntos.Text);
+                        Application.Exit();
                         tab = new Tablero();
                     }
                     lbPuntos.Text = tab.ObtenerPuntos().ToString();
@@ -286,7 +287,11 @@ namespace Tetris
                     RefrescarS(p);
 
 
-
+                    if(tab2.Perder())
+                    {
+                        MessageBox.Show("Has Ganado!!!\nPuntosJ1: "+tab.ObtenerPuntos()+"\nPuntosJ2: "+tab2.ObtenerPuntos());
+                        Application.Exit();
+                    }
 
 
 
@@ -305,7 +310,7 @@ namespace Tetris
                 try
                 {
                     TcpClient tcpclnt = new TcpClient();
-                    tcpclnt.Connect("192.168.1.84", 8001);
+                    tcpclnt.Connect("192.168.1.66", 8001);
                     
                     IFormatter formatter = new BinaryFormatter();
 
@@ -430,9 +435,13 @@ namespace Tetris
 
                     tab2 = t;
                     RefrescarS(p);
-                    
-                    
-                    
+
+
+                    if (tab2.Perder())
+                    {
+                        MessageBox.Show("Has Ganado!!!\nPuntosJ1: " + tab.ObtenerPuntos() + "\nPuntosJ2: " + tab2.ObtenerPuntos());
+                        Application.Exit();
+                    }
                     //cosa.Close();
                    // cosa1.Close();
                     
