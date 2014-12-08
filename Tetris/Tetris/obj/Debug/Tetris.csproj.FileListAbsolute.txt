@@ -8,15 +8,7 @@ C:\Users\Oscar\Documents\Visual Studio 2013\Projects\Tetris\Tetris\obj\Debug\Tet
 C:\Users\Oscar\Documents\Visual Studio 2013\Projects\Tetris\Tetris\obj\Debug\Tetris.exe
 C:\Users\Oscar\Documents\Visual Studio 2013\Projects\Tetris\Tetris\obj\Debug\Tetris.pdb
 C:\Users\Oscar\Documents\Visual Studio 2013\Projects\Tetris\Tetris\bin\Debug\Block.png
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe.config
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.exe
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.pdb
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Block.png
 C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.pdb
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Form1.resources
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Properties.Resources.resources
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
 C:\Users\Vizardespa\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe.config
 C:\Users\Vizardespa\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.exe
 C:\Users\Vizardespa\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.pdb
@@ -36,15 +28,23 @@ C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.c
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Block.png
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.pdb
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.DosJugadoresTablero.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.EscribeIP.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuDosJugadores.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuPrincipal.resources
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.DosJugadoresTablero.resources
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.EscribeIP.resources
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuDosJugadores.resources
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuPrincipal.resources
-C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Creditos.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Creditos.resources
 C:\Users\Vizardespa\Documents\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.exe.config
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.exe
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.pdb
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Block.png
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\bin\Debug\Tetris.pdb
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Creditos.resources
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.DosJugadoresTablero.resources
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.EscribeIP.resources
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Form1.resources
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuDosJugadores.resources
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.MenuPrincipal.resources
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.Properties.Resources.resources
+C:\Users\Oscar\Documents\GitHub\SuperKratosTetris\Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
