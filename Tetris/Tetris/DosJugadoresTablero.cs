@@ -292,7 +292,7 @@ namespace Tetris
                         bytesTab= streamtab.ToArray();
                     }
 
-                    byte[] final = new byte[bytesPieza.Length + bytesTab.Length];
+                    byte[] final = new byte[bytesPieza.Length + bytesTab.Length + 1];
 
                     for (int i = 0; i < bytesPieza.Length; i++)
                     {
