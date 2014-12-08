@@ -360,10 +360,11 @@ namespace Tetris
                     }
                     final[final.Length] = Convert.ToByte(';');
 
-                    
-
                     NetworkStream cosa = tcpclnt.GetStream();
-                    cosa.Write(final, 0, final.Length);
+                    cosa.Write(bytesPieza, 0, bytesPieza.Length);
+
+                    NetworkStream cosa1 = tcpclnt.GetStream();
+                    cosa1.Write(bytesTab, 0, bytesTab.Length);
 
                     
                 }
