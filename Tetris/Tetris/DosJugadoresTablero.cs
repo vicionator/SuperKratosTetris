@@ -21,9 +21,11 @@ namespace Tetris
     public partial class DosJugadoresTablero : Form
     {
         bool Servidor = false;
-        public DosJugadoresTablero(bool s)
+        string IP;
+        public DosJugadoresTablero(bool s, string ip)
         {
             Servidor = s;
+            IP = ip;
             InitializeComponent();
         }
 
@@ -284,6 +286,7 @@ namespace Tetris
                         }
                     }
                     tab2 = t;
+                    label4.Text = tab2.ObtenerPuntos().ToString();
                     RefrescarS(p);
 
 
@@ -310,7 +313,7 @@ namespace Tetris
                 try
                 {
                     TcpClient tcpclnt = new TcpClient();
-                    tcpclnt.Connect("192.168.1.66", 8001);
+                    tcpclnt.Connect(IP, 8001);
                     
                     IFormatter formatter = new BinaryFormatter();
 
@@ -434,6 +437,7 @@ namespace Tetris
                     }
 
                     tab2 = t;
+                    label4.Text = tab2.ObtenerPuntos().ToString();
                     RefrescarS(p);
 
 
@@ -462,7 +466,7 @@ namespace Tetris
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

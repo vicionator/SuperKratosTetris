@@ -129,6 +129,7 @@ namespace Tetris
                 m.Show();
                 this.Close();
             }*/
+            Application.Exit();
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {

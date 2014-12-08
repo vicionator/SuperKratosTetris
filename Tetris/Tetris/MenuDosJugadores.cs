@@ -26,7 +26,7 @@ namespace Tetris
 
         private void btnEsperarPartida_Click(object sender, EventArgs e)
         {
-            DosJugadoresTablero DJT = new DosJugadoresTablero(true);
+            DosJugadoresTablero DJT = new DosJugadoresTablero(true, "serv");
             DJT.Show();
             this.Hide();
         }
